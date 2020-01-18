@@ -1,2 +1,10 @@
 # Js_quizs
-Little's quiz in javascript
+
+
+Bienvenue ! Vous voulez faire des quizs ?
+
+Vous êtes au bon endroit !
+
+(Page d'acceuil du site)[https://nath54.github.io/Js_quizs/index.html]
+
+
