@@ -1,8 +1,8 @@
 
 var q={question:"",reponses:[],br:0};
 
-var q1={question:"Quand nait l'Assemblée Nationale ?",reponses:["le 16/06/89","le 17/06/89","le 15/06/89"],br:2};
-var q2={question:"Que se passe t-il le 04/08/89",reponses:["La proclamation de la DDHC","La mise en place de la monarchie constitutionelle","L'Abolition des privileges"],br:3};
+var q1={question:"Quand nait l'Assemblée Nationale ?",reponses:["le 16 juin 1789","le 17 juin 1789","le 18 juin 1789"],br:2};
+var q2={question:"Que se passe t-il le 04 août 1789",reponses:["La proclamation de la DDHC","La mise en place de la monarchie constitutionelle","L'Abolition des privileges"],br:3};
 var q3={question:"Qui est a la tete de la Terreur ?",reponses:["Rosbespierre","Louis XIV","Louis XVI"],br:1};
 var q4={question:"Qui veut le vote par tête et non par ordre aux Etats-Generaux ?",reponses:["La noblesse","le tiers-etat","le clergé"],br:2};
 var q5={question:"Quand est-ce qu'a eu lieu la prise de la Bastille ?",reponses:["le 14 juillet 1789","le 26 aout 1789","le 14 juin 1789"],br:1};
