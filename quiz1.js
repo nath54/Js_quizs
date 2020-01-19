@@ -15,10 +15,12 @@ var q11={question:"Dans quel camp se trouve La Fayette ?",reponses:["Aux Montagn
 var q12={question:"Dans quel camp se trouve Robespierre ?",reponses:["Aux Montagnards","Aux Girondins","Au clubs des Feuillant"],br:1};
 var q13={question:"Completez cette expression : Avec la Constitution de 1791, la Nation est ......",reponses:["royale","souveraine","riche"],br:2};
 var q14={question:"Quels sont les pouvoirs du rois dans la monarchie Constitutionelle ?",reponses:["le pouvoir éxécutif","le pouvoir législatif","le pouvoir judiciaire"],br:1};
+var q15={question:"Quand est-ce que Manon Roland meurt ?",reponses:["le 10 juin 1794","le 11 juin 1793","le 1 juin 1783"],br:3};
+var q16={question:"Que se passe t-il en juillet 1794",reponses:["Le calendrier révolutionnaire a été mis en place","Robespierre se fait guillotiner","il y a l'abolition de l'esclavage"],br:2};
+var q17={question:"Quel est le nom du gouvernement de 1795-1799 ?",reponses:["le Directeur","le Directoire","la Direction"],br:2};
 
 
 
 
-
-var questions=[q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14];
+var questions=[q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17];
 
