@@ -1,10 +1,12 @@
 /////////////////////////////////////////////////////////// VARIABLES ///////////////////////////////////////////////////////////
-
+var lmois=["janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"]
 var listeElements=[];
 var points=0;
 var nbqt=10;
 var nbq=0;
 var qsts=[];
+var dt=new Date();
+var time=dt.getTime();
 
 /////////////////////////////////////////////////////////// FONCTIONS ///////////////////////////////////////////////////////////
 
@@ -49,17 +51,88 @@ function pq(q){
     t.innerHTML= q.question;
     document.body.appendChild(t);
     listeElements.push( t );
-    var nb=1;
-    for( r of q.reponses ){
-         var b1=document.createElement("button");
-         b1.innerHTML=r;
-         //alert(b1.click);
-         b1.setAttribute('onclick', "bb("+nb+");");
-         b1.setAttribute("id","b"+nb);
-         b1.setAttribute("class","button_reponse");
-         document.body.appendChild(b1);
-         listeElements.push( b1 );
-         nb++;
+    if(q.type=="qcu"){
+        var nb=1;
+        for( r of q.reponses ){
+             var b1=document.createElement("button");
+             b1.innerHTML=r;
+             //alert(b1.click);
+             b1.setAttribute('onclick', "bb("+nb+");");
+             b1.setAttribute("id","b"+nb);
+             b1.setAttribute("class","button_reponse");
+             document.body.appendChild(b1);
+             listeElements.push( b1 );
+             nb++;
+         }
+     }
+     else if(q.type=="dat"){
+         var s1=document.createElement("select");
+         s1.setAttribute("id","s1");
+         var so1=document.createElement("optgroup");
+         so1.innerHTML="jours";
+         for(x=1;x<31;x++){
+             o=document.createElement("option");
+             o.innerHTML=""+x;
+             so1.appendChild(o);
+         }
+         var s2=document.createElement("select");
+         s2.setAttribute("id","s2");
+         var so2=document.createElement("optgroup");
+         so2.innerHTML="mois";
+         for(x=0;x<lmois.length;x++){
+             o=document.createElement("option");
+             o.innerHTML=""+lmois[x];
+             so2.appendChild(o);
+         }
+         var s3=document.createElement("select");
+         s3.setAttribute("id","s3");
+         var so3=document.createElement("optgroup");
+         so3.innerHTML="annee";
+         for(x=1785;x<1815;x++){
+             o=document.createElement("option");
+             o.innerHTML=""+x;
+             o.setAttribute("onClick","update_dat();");
+             so3.appendChild(o);
+         }
+         s1.appendChild(so1);
+         s2.appendChild(so2);
+         s3.appendChild(so3);
+         s1.setAttribute("onClick","update_dat();");
+         s2.setAttribute("onClick","update_dat();");
+         s3.setAttribute("onClick","update_dat();");
+         document.body.appendChild(s1);
+         document.body.appendChild(s2);
+         document.body.appendChild(s3);
+         listeElements.push(s1);
+         listeElements.push(s2);
+         listeElements.push(s3);
+         var ppp=document.createElement("p");
+         ppp.innerHTML=""
+         ppp.setAttribute("id","pd");
+         document.body.appendChild(ppp);
+         listeElements.push(ppp);
+         var nbt=document.createElement("button");
+         nbt.innerHTML="confirmer";
+         nbt.setAttribute("onClick","check_date();");
+         nbt.setAttribute("id","qsuiv");
+         document.body.appendChild(nbt);
+         listeElements.push(nbt);
+     }
+     else if(q.type=="inp"){
+         var t=document.createElement("h2");
+         t.innerHTML="Retenez bien, Vous devrez recopier la définition mot pour mot";
+         var p=document.createElement("p");
+         p.innerHTML=q.br;
+         var bt=document.createElement("button");
+         bt.setAttribute("onClick","inpet2();");
+         bt.innerHTML="C'est bon, je connais !";
+         bt.setAttribute("class","button_reponse");
+         document.body.appendChild( t );
+         document.body.appendChild( p );
+         document.body.appendChild( bt );
+         listeElements.push(t);
+         listeElements.push(p);
+         listeElements.push(bt);
      }
      document.getElementById("qe").value=q;
 }
@@ -107,13 +180,14 @@ function ecran_fin(){
 
 function makequestions(){
     qsts=[];
-    while(qsts.length<nbqt){
+    while(qsts.length<nbqt && qsts.length<questions.length){
 	    //alert("2");
 	    q=randomchoice(questions);
 	    if( !(isIn(qsts,q) ) ){
 	    	qsts.push( q );
 	    }
     }
+    nbqt=qsts.length;
 }
 
 function redo(){
@@ -158,6 +232,198 @@ function qsuiv(){
 	}
 }
 
+function update_dat(){
+	var pd=document.getElementById("pd");
+	var jour=document.getElementById("s1").value;
+	var moi=document.getElementById("s2").value;
+	var an=document.getElementById("s3").value;
+	pd.innerHTML="Le "+jour+" "+moi+" "+an;
+}
+
+function check_date(){
+	var jour=document.getElementById("s1").value;
+	var moi=document.getElementById("s2").value;
+	var an=document.getElementById("s3").value;
+	var qq=document.getElementById("qe").value;
+    var rep=[jour,moi,an];
+    var b=qq.br;
+    //alert(b[0]+'_'+b[1]+'_'+b[2]);
+    //alert(rep[0]+'_'+rep[1]+'_'+rep[2]);
+	var cond=b[0]+'_'+b[1]+'_'+b[2]==rep[0]+'_'+rep[1]+'_'+rep[2]
+	//alert(cond);
+	//nettoyage de la page
+	for(e of listeElements ){
+		document.body.removeChild(e);
+	}
+	listeElements=[];
+	//création des éléments
+	var p1=document.createElement("p");
+	p1.innerHTML="question n°"+nbq+" sur "+nbqt;
+	var p2=document.createElement("p");
+	p2.innerHTML="score : "+points+" / "+nbq;
+	document.body.appendChild(p1);
+    listeElements.push( p1 );
+    document.body.appendChild(p2);
+    listeElements.push( p2 );
+    var t=document.createElement("h1");
+    t.innerHTML= qq.question;
+    document.body.appendChild(t);
+    listeElements.push( t );
+	
+    if( cond ){
+        points+=1;
+        var tt=document.createElement("h2");
+        tt.innerHTML= "Vous avez juste !";
+        tt.setAttribute("style","color:green;");
+        document.body.appendChild(tt);
+        listeElements.push( tt );
+    }
+    else{
+        var tt=document.createElement("h2");
+        tt.innerHTML= "Vous avez faux ! La bonne réponse était : le "+qq.br[0]+" "+qq.br[1]+" "+qq.br[2];
+        tt.setAttribute("style","color:red;");
+        document.body.appendChild(tt);
+        listeElements.push( tt );
+    }
+    nbq+=1;
+    var nbt=document.createElement("button");
+    nbt.innerHTML="question suivante";
+    nbt.setAttribute("onClick","qsuiv();");
+    nbt.setAttribute("id","qsuiv");
+    document.body.appendChild(nbt);
+    listeElements.push(nbt);
+}
+
+function inpet2(){
+	var tp=5
+	//nettoyage de la page
+	for(e of listeElements ){
+		document.body.removeChild(e);
+	}
+	listeElements=[];
+	var t=document.createElement("h2");
+    t.innerHTML="Attendez "+tp+" sec";
+    var bt=document.createElement("button");
+    bt.setAttribute("onClick","inpet3("+tp+");");  //en sec
+    bt.setAttribute("class","button_reponse");
+    bt.innerHTML="Continuer";
+    document.body.appendChild( t );
+    document.body.appendChild( bt );
+    listeElements.push(t);
+    listeElements.push(bt);
+    var dt=new Date();
+    time=dt.getTime();
+}
+
+function inpet3(tp){
+	var dt=new Date();
+	if( dt.getTime()-time >= tp*1000 ){
+		inpet4();
+	}
+	else{
+		alert("il reste encore "+(tp-(dt.getTime()-time)/1000)+" sec");
+	}
+}
+
+function inpet4(){
+	//nettoyage de la page
+	for(e of listeElements ){
+		document.body.removeChild(e);
+	}
+	listeElements=[];
+	//
+	var qq=document.getElementById("qe");
+	var p1=document.createElement("p");
+	p1.innerHTML="question n°"+nbq+" sur "+nbqt;
+	var p2=document.createElement("p");
+	p2.innerHTML="score : "+points+" / "+nbq;
+	document.body.appendChild(p1);
+    listeElements.push( p1 );
+    document.body.appendChild(p2);
+    listeElements.push( p2 );
+    var t=document.createElement("h1");
+    t.innerHTML= qq.question;
+	var tt=document.createElement("h2");
+    tt.innerHTML="Recopiez la définition mot pour mot";
+    var inp=document.createElement("input");
+    inp.setAttribute("type","text");
+    var nbt=document.createElement("button");
+    nbt.innerHTML="verifier";
+    nbt.setAttribute("onClick","check_inp();");
+    nbt.setAttribute("class","button_reponse");
+    document.body.appendChild(t);
+    document.body.appendChild(tt);
+    document.body.appendChild(inp);
+    document.body.appendChild(nbt);
+    listeElements.push(nbt);
+    listeElements.push( t );
+    listeElements.push( inp );
+}
+
+function traiteInp(txt){
+	var r="";
+	for(l of txt.split('')){
+		ll=l.lower();
+		if( ll in ["ê","é","è","ë"] ){
+			ll="e";
+	    }
+	    else if( ll in ["à","â","á","ä"] ){
+			ll="a";
+	    }
+	    else if( ll in ["ï","î","í","ī"] ){
+			ll="i";
+	    }
+		else if( ll in ["\t"," ","\n","\r"] ){
+		    ll="";
+		}
+	    r+=ll;
+	}
+	return r;
+}
+
+function check_inp(){
+	var qq=document.getElementById("qe");
+	//nettoyage de la page
+	for(e of listeElements ){
+		document.body.removeChild(e);
+	}
+	listeElements=[];
+	//création des éléments
+	var p1=document.createElement("p");
+	p1.innerHTML="question n°"+nbq+" sur "+nbqt;
+	var p2=document.createElement("p");
+	p2.innerHTML="score : "+points+" / "+nbq;
+	document.body.appendChild(p1);
+    listeElements.push( p1 );
+    document.body.appendChild(p2);
+    listeElements.push( p2 );
+    var t=document.createElement("h1");
+    t.innerHTML= qq.question;
+    var p=document.createElement("p");
+    
+    var rep=document.getElementById("input");
+    if(traiteInp(rep)==traiteInp(qq.br)){
+        var tt=document.createElement("h2");
+        tt.innerHTML="Vous avez juste !";
+        tt.setAttribute("style","color:green;");
+    }
+    else{
+        var tt=document.createElement("h2");
+        tt.innerHTML="Vous avez faux ! Dommage, ce n'était pas facile, mais vous réussirerez mieux la prochaine fois ;)";
+        tt.setAttribute("style","color:red;");
+        p.innerHTML="Par contre, il ne faux jamais abandoner, sinon, vous ne réussirez jamais.";
+    }
+    var nbt=document.createElement("button");
+    nbt.innerHTML="question suivante";
+    nbt.setAttribute("onClick","qsuiv();");
+    nbt.setAttribute("id","qsuiv");
+    document.body.appendChild(t);
+    document.body.appendChild(nbt);
+    document.body.appendChild( tt );
+    listeElements.push( t );
+    listeElements.push(nbt);
+    listeElements.push(tt);
+}
 
 /////////////////////////////////////////////////////////// MAIN CODE ///////////////////////////////////////////////////////////
 
