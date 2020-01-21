@@ -2,7 +2,7 @@
 var q={type:"",question:"",reponses:[],br:0};
 
 
-var q1={type:"qcu",question:"Où ne se situent pas les Métromoles Francaises ?",reponses:["Aux littoraux","Près des frontières","À la montagne","Dans les vallées fluviales"],br:3};
+var q1={type:"qcu",question:"Où ne se situent pas les Métropoles Francaises ?",reponses:["Aux littoraux","Près des frontières","À la montagne","Dans les vallées fluviales"],br:3};
 var q2={type:"qcu",question:"Quelles sont les zones les plus dynamiques en France ?",reponses:["À l'Ouest et au Sud","Au Nord et L'Est","Au centre et au Nord"],br:1};
 var q3={type:"inp",question:"Définition de PIB",reponses:[],br:"Somme des richesses produites dans un pays et une année données"};
 var q4={type:"inp",question:"Définition de Pays Emergent",reponses:[],br:"pays en développement qui pourraient etre un jour développés."};
