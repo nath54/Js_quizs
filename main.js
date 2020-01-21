@@ -363,6 +363,7 @@ function inpet4(){
     document.body.appendChild(nbt);
     listeElements.push(nbt);
     listeElements.push( t );
+    listeElements.push( tt );
     listeElements.push( inp );
 }
 
