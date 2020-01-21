@@ -88,7 +88,7 @@ function pq(q){
          s3.setAttribute("id","s3");
          var so3=document.createElement("optgroup");
          so3.innerHTML="annee";
-         for(x=1785;x<1815;x++){
+         for(x=q.reponses[0];x<q.reponses[1];x++){
              o=document.createElement("option");
              o.innerHTML=""+x;
              o.setAttribute("onClick","update_dat();");
@@ -285,7 +285,6 @@ function check_date(){
         document.body.appendChild(tt);
         listeElements.push( tt );
     }
-    nbq+=1;
     var nbt=document.createElement("button");
     nbt.innerHTML="question suivante";
     nbt.setAttribute("onClick","qsuiv();");
@@ -332,7 +331,7 @@ function inpet4(){
 	}
 	listeElements=[];
 	//
-	var qq=document.getElementById("qe");
+	var qq=document.getElementById("qe").value;
 	var p1=document.createElement("p");
 	p1.innerHTML="question n°"+nbq+" sur "+nbqt;
 	var p2=document.createElement("p");
@@ -343,10 +342,13 @@ function inpet4(){
     listeElements.push( p2 );
     var t=document.createElement("h1");
     t.innerHTML= qq.question;
+    alert(qq.question);
 	var tt=document.createElement("h2");
     tt.innerHTML="Recopiez la définition mot pour mot";
     var inp=document.createElement("input");
     inp.setAttribute("type","text");
+    inp.setAttribute("id","input");
+    inp.value="";
     var nbt=document.createElement("button");
     nbt.innerHTML="verifier";
     nbt.setAttribute("onClick","check_inp();");
@@ -363,17 +365,17 @@ function inpet4(){
 function traiteInp(txt){
 	var r="";
 	for(l of txt.split('')){
-		ll=l.lower();
-		if( ll in ["ê","é","è","ë"] ){
+		ll=l.toLowerCase();
+		if( ["ê","é","è","ë"].includes(ll) ){
 			ll="e";
 	    }
-	    else if( ll in ["à","â","á","ä"] ){
+	    else if( ["à","â","á","ä"].includes(ll) ){
 			ll="a";
 	    }
-	    else if( ll in ["ï","î","í","ī"] ){
+	    else if( ["ï","î","í","ī"].includes(ll) ){
 			ll="i";
 	    }
-		else if( ll in ["\t"," ","\n","\r"] ){
+		else if( ["\t"," ","\n","\r"].includes(ll) ){
 		    ll="";
 		}
 	    r+=ll;
@@ -382,7 +384,8 @@ function traiteInp(txt){
 }
 
 function check_inp(){
-	var qq=document.getElementById("qe");
+	var rep=document.getElementById("input").value;
+	var qq=document.getElementById("qe").value;
 	//nettoyage de la page
 	for(e of listeElements ){
 		document.body.removeChild(e);
@@ -397,18 +400,18 @@ function check_inp(){
     listeElements.push( p1 );
     document.body.appendChild(p2);
     listeElements.push( p2 );
-    var t=document.createElement("h1");
-    t.innerHTML= qq.question;
     var p=document.createElement("p");
+    //
     
-    var rep=document.getElementById("input");
+    var tt=document.createElement("h2");
+    alert(traiteInp(rep));
+    alert(traiteInp(qq.br));
     if(traiteInp(rep)==traiteInp(qq.br)){
-        var tt=document.createElement("h2");
         tt.innerHTML="Vous avez juste !";
         tt.setAttribute("style","color:green;");
+        points+=1;
     }
     else{
-        var tt=document.createElement("h2");
         tt.innerHTML="Vous avez faux ! Dommage, ce n'était pas facile, mais vous réussirerez mieux la prochaine fois ;)";
         tt.setAttribute("style","color:red;");
         p.innerHTML="Par contre, il ne faux jamais abandoner, sinon, vous ne réussirez jamais.";
@@ -417,12 +420,12 @@ function check_inp(){
     nbt.innerHTML="question suivante";
     nbt.setAttribute("onClick","qsuiv();");
     nbt.setAttribute("id","qsuiv");
-    document.body.appendChild(t);
     document.body.appendChild(nbt);
     document.body.appendChild( tt );
-    listeElements.push( t );
+    document.body.appendChild( p );
     listeElements.push(nbt);
     listeElements.push(tt);
+    listeElements.push(p);
 }
 
 /////////////////////////////////////////////////////////// MAIN CODE ///////////////////////////////////////////////////////////
