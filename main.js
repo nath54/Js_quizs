@@ -344,7 +344,7 @@ function inpet4(){
     t.innerHTML= qq.question;
     //alert(qq.question);
 	var tt=document.createElement("h2");
-    tt.innerHTML="Recopiez la définition mot pour mot";
+    tt.innerHTML="Recopiez la définition mot pour mot ( Vous n'êtes pas obligés de mettres les accents, les majuscules, les espaces ou les ponctuations)";
     var inp=document.createElement("input");
     inp.setAttribute("type","text");
     inp.setAttribute("id","input");
