@@ -342,13 +342,17 @@ function inpet4(){
     listeElements.push( p2 );
     var t=document.createElement("h1");
     t.innerHTML= qq.question;
-    alert(qq.question);
+    //alert(qq.question);
 	var tt=document.createElement("h2");
     tt.innerHTML="Recopiez la définition mot pour mot";
     var inp=document.createElement("input");
     inp.setAttribute("type","text");
     inp.setAttribute("id","input");
     inp.value="";
+    inp.onpaste=function(){
+        alert('Merci de ne pas copier/coller les définitions, le blut est de les apprendres pour le Bac');        // on prévient
+        return false;        // on empêche
+    };
     var nbt=document.createElement("button");
     nbt.innerHTML="verifier";
     nbt.setAttribute("onClick","check_inp();");
@@ -375,7 +379,7 @@ function traiteInp(txt){
 	    else if( ["ï","î","í","ī"].includes(ll) ){
 			ll="i";
 	    }
-		else if( ["\t"," ","\n","\r"].includes(ll) ){
+		else if( ["\t"," ","\n","\r",",",".",":","!","?","(",")"].includes(ll) ){
 		    ll="";
 		}
 	    r+=ll;
@@ -404,8 +408,8 @@ function check_inp(){
     //
     
     var tt=document.createElement("h2");
-    alert(traiteInp(rep));
-    alert(traiteInp(qq.br));
+    //alert(traiteInp(rep));
+   // alert(traiteInp(qq.br));
     if(traiteInp(rep)==traiteInp(qq.br)){
         tt.innerHTML="Vous avez juste !";
         tt.setAttribute("style","color:green;");
@@ -414,8 +418,8 @@ function check_inp(){
     else{
         tt.innerHTML="Vous avez faux ! Dommage, ce n'était pas facile, mais vous réussirerez mieux la prochaine fois ;)";
         tt.setAttribute("style","color:red;");
-        p.innerHTML="Par contre, il ne faux jamais abandoner, sinon, vous ne réussirez jamais.";
     }
+    p.innerHTML="La bonne réponse était : "+qq.br;
     var nbt=document.createElement("button");
     nbt.innerHTML="question suivante";
     nbt.setAttribute("onClick","qsuiv();");
