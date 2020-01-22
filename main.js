@@ -8,6 +8,7 @@ var qsts=[];
 var dt=new Date();
 var time=dt.getTime();
 var repondu=false;
+var reponses_q=[];
 
 /////////////////////////////////////////////////////////// FONCTIONS ///////////////////////////////////////////////////////////
 
@@ -71,6 +72,7 @@ function pq(q){
     if(q.type=="qcu"){
         var nb=1;
         var reponses=traiteRep(q.reponses);
+        reponses_q=reponses;
         for( r of reponses ){
              var b1=document.createElement("button");
              b1.innerHTML=r;
@@ -237,8 +239,7 @@ function bb(txt,num){
       //  alert(qq.reponses);
         //alert(qq.br);
         try{
-            var bbt=document.getElementById("b"+qq.reponses.indexOf(qq.br)+1);
-            alert(bbt);
+            var bbt=document.getElementById("b"+(reponses_q.indexOf(qq.br)+1));
             bbt.setAttribute("style","background-color:green");
         }
         catch{
