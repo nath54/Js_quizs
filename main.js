@@ -33,8 +33,23 @@ function nettoiePage(){
     }
 }
 
+function randchoice(liste){
+	return liste[parseInt(Math.random()*liste.length)]
+}
+
+function traiteRep(reps){
+	var nreps=[];
+	while( nreps.length<reps.length){
+		r=randchoice(reps);
+		if( !(isIn(nreps,r) ) ){
+			nreps.push(r);
+		}
+	}
+	return nreps;
+}
+
 function pq(q){
-	repondu=true;
+	repondu=false;
 	//nettoyage de la page
 	for(e of listeElements ){
 		document.body.removeChild(e);
@@ -55,11 +70,12 @@ function pq(q){
     listeElements.push( t );
     if(q.type=="qcu"){
         var nb=1;
-        for( r of q.reponses ){
+        var reponses=traiteRep(q.reponses);
+        for( r of reponses ){
              var b1=document.createElement("button");
              b1.innerHTML=r;
              //alert(b1.click);
-             b1.setAttribute('onclick', "bb("+nb+");");
+             b1.setAttribute('onclick', "bb('"+r+"',"+nb+");");
              b1.setAttribute("id","b"+nb);
              b1.setAttribute("class","button_reponse");
              document.body.appendChild(b1);
@@ -199,7 +215,8 @@ function redo(){
 	pq(qsts[nbq]);
 }
 
-function bb(num){
+function bb(txt,num){
+	//alert("1 "+txt+" - "+num+" - "+repondu)
 	if( repondu ){
 		return false;
 	}
@@ -208,7 +225,7 @@ function bb(num){
 	}
 	var qq=document.getElementById("qe").value;
     var bt=document.getElementById("b"+num);
-	if( qq.br == num ){
+	if( qq.br == txt ){
         points++;
         bt.setAttribute("style","background-color:green");
 //        alert("Bonne réponse !");
@@ -216,8 +233,17 @@ function bb(num){
     else{
 //        alert("erreur, la bonne réponse était : "+qq.reponses[qq.br-1]);
         bt.setAttribute("style","background-color:red");
-        var bbt=document.getElementById("b"+qq.br);
-        bbt.setAttribute("style","background-color:green");
+      //  alert(qq.reponses.indexOf(qq.br)+1);
+      //  alert(qq.reponses);
+        //alert(qq.br);
+        try{
+            var bbt=document.getElementById("b"+qq.reponses.indexOf(qq.br)+1);
+            alert(bbt);
+            bbt.setAttribute("style","background-color:green");
+        }
+        catch{
+            
+        }
     }
     var nbt=document.createElement("button");
     nbt.innerHTML="question suivante";
@@ -358,7 +384,7 @@ function inpet4(){
     inp.setAttribute("id","input");
     inp.value="";
     inp.onpaste=function(){
-        alert('Merci de ne pas copier/coller les définitions, le blut est de les apprendres pour le Bac');        // on prévient
+        alert('Merci de ne pas copier/coller les définitions, le but est de les apprendre pour le Bac');        // on prévient
         return false;        // on empêche
     };
     var nbt=document.createElement("button");
