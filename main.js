@@ -7,6 +7,7 @@ var nbq=0;
 var qsts=[];
 var dt=new Date();
 var time=dt.getTime();
+var repondu=false;
 
 /////////////////////////////////////////////////////////// FONCTIONS ///////////////////////////////////////////////////////////
 
@@ -33,6 +34,7 @@ function nettoiePage(){
 }
 
 function pq(q){
+	repondu=true;
 	//nettoyage de la page
 	for(e of listeElements ){
 		document.body.removeChild(e);
@@ -198,6 +200,12 @@ function redo(){
 }
 
 function bb(num){
+	if( repondu ){
+		return false;
+	}
+	else{
+		repondu=true;
+	}
 	var qq=document.getElementById("qe").value;
     var bt=document.getElementById("b"+num);
 	if( qq.br == num ){
@@ -362,8 +370,8 @@ function inpet4(){
     document.body.appendChild(inp);
     document.body.appendChild(nbt);
     listeElements.push(nbt);
-    listeElements.push( t );
     listeElements.push( tt );
+    listeElements.push( t );
     listeElements.push( inp );
 }
 
