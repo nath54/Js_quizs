@@ -86,23 +86,35 @@ function pq(q){
          }
      }
      else if(q.type=="dat"){
-         var s1=document.createElement("select");
-         s1.setAttribute("id","s1");
-         var so1=document.createElement("optgroup");
-         so1.innerHTML="jours";
-         for(x=1;x<31;x++){
-             o=document.createElement("option");
-             o.innerHTML=""+x;
-             so1.appendChild(o);
+         if(q.br.length>=3){
+             var s1=document.createElement("select");
+             s1.setAttribute("id","s1");
+             var so1=document.createElement("optgroup");
+             so1.innerHTML="jours";
+             for(x=1;x<31;x++){
+                 o=document.createElement("option");
+                 o.innerHTML=""+x;
+                 so1.appendChild(o);
+             }
+             s1.appendChild(so1);
+             s1.setAttribute("onClick","update_dat();");
+             document.body.appendChild(s1);
+             listeElements.push(s1);
          }
-         var s2=document.createElement("select");
-         s2.setAttribute("id","s2");
-         var so2=document.createElement("optgroup");
-         so2.innerHTML="mois";
-         for(x=0;x<lmois.length;x++){
-             o=document.createElement("option");
-             o.innerHTML=""+lmois[x];
-             so2.appendChild(o);
+         if(q.br.length>=2){
+             var s2=document.createElement("select");
+             s2.setAttribute("id","s2");
+             var so2=document.createElement("optgroup");
+             so2.innerHTML="mois";
+             for(x=0;x<lmois.length;x++){
+                 o=document.createElement("option");
+                 o.innerHTML=""+lmois[x];
+                 so2.appendChild(o);
+             }
+             s2.appendChild(so2);
+             s2.setAttribute("onClick","update_dat();");
+             document.body.appendChild(s2);
+             listeElements.push(s2);
          }
          var s3=document.createElement("select");
          s3.setAttribute("id","s3");
@@ -114,17 +126,9 @@ function pq(q){
              o.setAttribute("onClick","update_dat();");
              so3.appendChild(o);
          }
-         s1.appendChild(so1);
-         s2.appendChild(so2);
          s3.appendChild(so3);
-         s1.setAttribute("onClick","update_dat();");
-         s2.setAttribute("onClick","update_dat();");
          s3.setAttribute("onClick","update_dat();");
-         document.body.appendChild(s1);
-         document.body.appendChild(s2);
          document.body.appendChild(s3);
-         listeElements.push(s1);
-         listeElements.push(s2);
          listeElements.push(s3);
          var ppp=document.createElement("p");
          ppp.innerHTML=""
@@ -276,15 +280,33 @@ function update_dat(){
 }
 
 function check_date(){
-	var jour=document.getElementById("s1").value;
-	var moi=document.getElementById("s2").value;
-	var an=document.getElementById("s3").value;
 	var qq=document.getElementById("qe").value;
-    var rep=[jour,moi,an];
-    var b=qq.br;
+    //alert(qq.br.length);
+    var l=qq.br.length;
+    if(l>=2){
+	    var moi=document.getElementById("s2").value;
+    }
+    if(l>=3){
+	    var jour=document.getElementById("s1").value;
+	}
+	var an=document.getElementById("s3").value;
+	var rep=[an];
+	var b=qq.br;
+    var bonne_rep=b.join(' ');
+	var cond=b[0]==rep[0]
+	if(l>=2){
+        var rep=[moi,an];
+        var cond=b[0]+'_'+b[1]==rep[0]+'_'+rep[1];
+        
+    }
+    if(l>=3){
+        var rep=[jour,moi,an];
+        var cond=b[0]+'_'+b[1]+'_'+b[2]==rep[0]+'_'+rep[1]+'_'+rep[2];
+        //alert(b[0]+'_'+b[1]+'_'+b[2]+"  "+rep[0]+'_'+rep[1]+'_'+rep[2]);
+       // alert(cond);
+    }
     //alert(b[0]+'_'+b[1]+'_'+b[2]);
     //alert(rep[0]+'_'+rep[1]+'_'+rep[2]);
-	var cond=b[0]+'_'+b[1]+'_'+b[2]==rep[0]+'_'+rep[1]+'_'+rep[2]
 	//alert(cond);
 	//nettoyage de la page
 	for(e of listeElements ){
@@ -315,7 +337,7 @@ function check_date(){
     }
     else{
         var tt=document.createElement("h2");
-        tt.innerHTML= "Vous avez faux ! La bonne réponse était : le "+qq.br[0]+" "+qq.br[1]+" "+qq.br[2];
+        tt.innerHTML= "Vous avez faux ! La bonne réponse était : le "+bonne_rep;
         tt.setAttribute("style","color:red;");
         document.body.appendChild(tt);
         listeElements.push( tt );
