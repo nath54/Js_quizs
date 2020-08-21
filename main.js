@@ -9,6 +9,7 @@ var dt=new Date();
 var time=dt.getTime();
 var repondu=false;
 var reponses_q=[];
+var content=document.getElementById("content");
 
 /////////////////////////////////////////////////////////// FONCTIONS ///////////////////////////////////////////////////////////
 
@@ -29,8 +30,8 @@ function isIn(liste,el){
 
 function nettoiePage(){
     listeElements=[];
-    for( element of document.body.getChilds){
-        document.body.removeChild( element );
+    for( element of content.getChilds){
+        content.removeChild( element );
     }
 }
 
@@ -53,7 +54,7 @@ function pq(q){
 	repondu=false;
 	//nettoyage de la page
 	for(e of listeElements ){
-		document.body.removeChild(e);
+		content.removeChild(e);
 	}
 	listeElements=[];
 	//création des éléments
@@ -61,29 +62,34 @@ function pq(q){
 	p1.innerHTML="question n°"+nbq+" sur "+nbqt;
 	var p2=document.createElement("p");
 	p2.innerHTML="score : "+points+" / "+nbq;
-	document.body.appendChild(p1);
+	content.appendChild(p1);
     listeElements.push( p1 );
-    document.body.appendChild(p2);
+    content.appendChild(p2);
     listeElements.push( p2 );
-    var t=document.createElement("h1");
+    var t=document.getElementById("qe");
     t.innerHTML= q.question;
-    document.body.appendChild(t);
-    listeElements.push( t );
+    //content.appendChild(t);
+    //listeElements.push( t );
     if(q.type=="qcu"){
         var nb=1;
         var reponses=traiteRep(q.reponses);
         reponses_q=reponses;
+        var divq=document.createElement("div");
+        divq.setAttribute("class","row no-collapse-1 center")
+
         for( r of reponses ){
              var b1=document.createElement("button");
              b1.innerHTML=r;
              //alert(b1.click);
              b1.setAttribute('onclick', "bb('"+r+"',"+nb+");");
              b1.setAttribute("id","b"+nb);
-             b1.setAttribute("class","button_reponse");
-             document.body.appendChild(b1);
-             listeElements.push( b1 );
+             b1.setAttribute("class","button_s1 button");
+             divq.appendChild(b1);
+             //listeElements.push( b1 );
              nb++;
          }
+         content.appendChild(divq);
+         listeElements.push( divq );
      }
      else if(q.type=="dat"){
          if(q.br.length>=3){
@@ -98,7 +104,7 @@ function pq(q){
              }
              s1.appendChild(so1);
              s1.setAttribute("onClick","update_dat();");
-             document.body.appendChild(s1);
+             content.appendChild(s1);
              listeElements.push(s1);
          }
          if(q.br.length>=2){
@@ -113,7 +119,7 @@ function pq(q){
              }
              s2.appendChild(so2);
              s2.setAttribute("onClick","update_dat();");
-             document.body.appendChild(s2);
+             content.appendChild(s2);
              listeElements.push(s2);
          }
          var s3=document.createElement("select");
@@ -128,18 +134,19 @@ function pq(q){
          }
          s3.appendChild(so3);
          s3.setAttribute("onClick","update_dat();");
-         document.body.appendChild(s3);
+         content.appendChild(s3);
          listeElements.push(s3);
          var ppp=document.createElement("p");
          ppp.innerHTML=""
          ppp.setAttribute("id","pd");
-         document.body.appendChild(ppp);
+         content.appendChild(ppp);
          listeElements.push(ppp);
          var nbt=document.createElement("button");
+         nbt.setAttribute("class","button button_s2")
          nbt.innerHTML="confirmer";
          nbt.setAttribute("onClick","check_date();");
          nbt.setAttribute("id","qsuiv");
-         document.body.appendChild(nbt);
+         content.appendChild(nbt);
          listeElements.push(nbt);
      }
      else if(q.type=="inp"){
@@ -150,10 +157,10 @@ function pq(q){
          var bt=document.createElement("button");
          bt.setAttribute("onClick","inpet2();");
          bt.innerHTML="C'est bon, je connais !";
-         bt.setAttribute("class","button_reponse");
-         document.body.appendChild( t );
-         document.body.appendChild( p );
-         document.body.appendChild( bt );
+         bt.setAttribute("class","button button_s2");
+         content.appendChild( t );
+         content.appendChild( p );
+         content.appendChild( bt );
          listeElements.push(t);
          listeElements.push(p);
          listeElements.push(bt);
@@ -164,17 +171,17 @@ function pq(q){
 function ecran_fin(){
 	//nettoyage de la page
 	for(e of listeElements ){
-		document.body.removeChild(e);
+		content.removeChild(e);
 	}
 	listeElements=[];
 	//afichage
 	var t1=document.createElement("p");
 	t1.innerHTML="Le quiz est fini !";
-	document.body.appendChild( t1 );
+	content.appendChild( t1 );
 	listeElements.push( t1 );
 	var t2=document.createElement("p");
 	t2.innerHTML="Vous avez fait un score de "+points+" / "+nbqt;
-	document.body.appendChild( t2 );
+	content.appendChild( t2 );
 	listeElements.push( t2 );
 	var s = points/nbqt;
 	if( s > 0.75 ){
@@ -192,13 +199,14 @@ function ecran_fin(){
 	var t3=document.createElement("p");
 	t3.innerHTML=txt;
 	t3.style=st;
-	document.body.appendChild( t3 );
+	content.appendChild( t3 );
 	listeElements.push( t3 );
-	var b1=document.createElement("button");
+    var b1=document.createElement("button");
     b1.innerHTML="Refaire le quiz ( les questions peuvent etre differentes) ";
     b1.setAttribute('onclick', "redo();");
     b1.setAttribute("id","bredo");
-    document.body.appendChild(b1);
+    b1.setAttribute("class","button button_s3")
+    content.appendChild(b1);
     listeElements.push( b1 );
 }
 
@@ -254,7 +262,8 @@ function bb(txt,num){
     nbt.innerHTML="question suivante";
     nbt.setAttribute("onClick","qsuiv();");
     nbt.setAttribute("id","qsuiv");
-    document.body.appendChild(nbt);
+    nbt.setAttribute("class","button button_s3")
+    content.appendChild(nbt);
     listeElements.push(nbt);
 }
 
@@ -310,7 +319,7 @@ function check_date(){
 	//alert(cond);
 	//nettoyage de la page
 	for(e of listeElements ){
-		document.body.removeChild(e);
+		content.removeChild(e);
 	}
 	listeElements=[];
 	//création des éléments
@@ -318,13 +327,13 @@ function check_date(){
 	p1.innerHTML="question n°"+nbq+" sur "+nbqt;
 	var p2=document.createElement("p");
 	p2.innerHTML="score : "+points+" / "+nbq;
-	document.body.appendChild(p1);
+	content.appendChild(p1);
     listeElements.push( p1 );
-    document.body.appendChild(p2);
+    content.appendChild(p2);
     listeElements.push( p2 );
     var t=document.createElement("h1");
     t.innerHTML= qq.question;
-    document.body.appendChild(t);
+    content.appendChild(t);
     listeElements.push( t );
 	
     if( cond ){
@@ -332,21 +341,22 @@ function check_date(){
         var tt=document.createElement("h2");
         tt.innerHTML= "Vous avez juste !";
         tt.setAttribute("style","color:green;");
-        document.body.appendChild(tt);
+        content.appendChild(tt);
         listeElements.push( tt );
     }
     else{
         var tt=document.createElement("h2");
         tt.innerHTML= "Vous avez faux ! La bonne réponse était : le "+bonne_rep;
         tt.setAttribute("style","color:red;");
-        document.body.appendChild(tt);
+        content.appendChild(tt);
         listeElements.push( tt );
     }
     var nbt=document.createElement("button");
     nbt.innerHTML="question suivante";
     nbt.setAttribute("onClick","qsuiv();");
     nbt.setAttribute("id","qsuiv");
-    document.body.appendChild(nbt);
+    nbt.setAttribute("class","button button_s3")
+    content.appendChild(nbt);
     listeElements.push(nbt);
 }
 
@@ -354,17 +364,17 @@ function inpet2(){
 	var tp=5
 	//nettoyage de la page
 	for(e of listeElements ){
-		document.body.removeChild(e);
+		content.removeChild(e);
 	}
 	listeElements=[];
 	var t=document.createElement("h2");
     t.innerHTML="Attendez "+tp+" sec";
     var bt=document.createElement("button");
     bt.setAttribute("onClick","inpet3("+tp+");");  //en sec
-    bt.setAttribute("class","button_reponse");
+    bt.setAttribute("class","button button_s2");
     bt.innerHTML="Continuer";
-    document.body.appendChild( t );
-    document.body.appendChild( bt );
+    content.appendChild( t );
+    content.appendChild( bt );
     listeElements.push(t);
     listeElements.push(bt);
     var dt=new Date();
@@ -384,7 +394,7 @@ function inpet3(tp){
 function inpet4(){
 	//nettoyage de la page
 	for(e of listeElements ){
-		document.body.removeChild(e);
+		content.removeChild(e);
 	}
 	listeElements=[];
 	//
@@ -393,9 +403,9 @@ function inpet4(){
 	p1.innerHTML="question n°"+nbq+" sur "+nbqt;
 	var p2=document.createElement("p");
 	p2.innerHTML="score : "+points+" / "+nbq;
-	document.body.appendChild(p1);
+	content.appendChild(p1);
     listeElements.push( p1 );
-    document.body.appendChild(p2);
+    content.appendChild(p2);
     listeElements.push( p2 );
     var t=document.createElement("h1");
     t.innerHTML= qq.question;
@@ -413,11 +423,11 @@ function inpet4(){
     var nbt=document.createElement("button");
     nbt.innerHTML="verifier";
     nbt.setAttribute("onClick","check_inp();");
-    nbt.setAttribute("class","button_reponse");
-    document.body.appendChild(t);
-    document.body.appendChild(tt);
-    document.body.appendChild(inp);
-    document.body.appendChild(nbt);
+    nbt.setAttribute("class","button button_s2");
+    content.appendChild(t);
+    content.appendChild(tt);
+    content.appendChild(inp);
+    content.appendChild(nbt);
     listeElements.push(nbt);
     listeElements.push( tt );
     listeElements.push( t );
@@ -450,7 +460,7 @@ function check_inp(){
 	var qq=document.getElementById("qe").value;
 	//nettoyage de la page
 	for(e of listeElements ){
-		document.body.removeChild(e);
+		content.removeChild(e);
 	}
 	listeElements=[];
 	//création des éléments
@@ -458,9 +468,9 @@ function check_inp(){
 	p1.innerHTML="question n°"+nbq+" sur "+nbqt;
 	var p2=document.createElement("p");
 	p2.innerHTML="score : "+points+" / "+nbq;
-	document.body.appendChild(p1);
+	content.appendChild(p1);
     listeElements.push( p1 );
-    document.body.appendChild(p2);
+    content.appendChild(p2);
     listeElements.push( p2 );
     var p=document.createElement("p");
     //
@@ -482,9 +492,10 @@ function check_inp(){
     nbt.innerHTML="question suivante";
     nbt.setAttribute("onClick","qsuiv();");
     nbt.setAttribute("id","qsuiv");
-    document.body.appendChild(nbt);
-    document.body.appendChild( tt );
-    document.body.appendChild( p );
+    nbt.setAttribute("class","button button_s3")
+    content.appendChild(nbt);
+    content.appendChild( tt );
+    content.appendChild( p );
     listeElements.push(nbt);
     listeElements.push(tt);
     listeElements.push(p);
@@ -492,11 +503,37 @@ function check_inp(){
 
 /////////////////////////////////////////////////////////// MAIN CODE ///////////////////////////////////////////////////////////
 
+var parameters = location.search.substring(1).split("&");
+var qt=false;
 
-makequestions();
+for(p of parameters){
+    pp=p.split("=");
+    if(pp.length==2){
+        if(pp[0]=="titre"){
+            document.getElementById("titre").innerHTML=pp[1];
+        }
+        else if(pp[0]=="quizjs"){
+            var qj = document.createElement("script");
+            qj.setAttribute("src",pp[1]);
+            qj.setAttribute("type","text/javascript");
+            qj.setAttribute("onload","init();");
+            document.body.appendChild(qj);
+            qt=true;
+        }
+    }
+}
 
-document.getElementById("qe").value=qsts[nbq];
-pq(qsts[nbq]);
+if(!qt){
+    alert("error");
+    window.location="index.html"
+}
 
-//alert("a");
+function init(){
+    makequestions();
+
+    document.getElementById("qe").value=qsts[nbq];
+    pq(qsts[nbq]);
+
+}
+
 
