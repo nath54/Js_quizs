@@ -68,6 +68,12 @@ function pq(q){
     listeElements.push( p2 );
     var t=document.getElementById("qe");
     t.innerHTML= q.question;
+    if(q["image"]!=undefined){
+        document.getElementById("im").setAttribute("src",q.image);
+    }
+    else{
+        document.getElementById("im").setAttribute("src","");
+    }
     //content.appendChild(t);
     //listeElements.push( t );
     if(q.type=="qcu"){
@@ -79,7 +85,15 @@ function pq(q){
 
         for( r of reponses ){
              var b1=document.createElement("button");
-             b1.innerHTML=r;
+             if(r.startsWith("quizs/")){
+                var i = document.createElement("img");
+                i.setAttribute("src",r);
+                i.setAttribute("class","img_bt");
+                b1.appendChild(i);
+             }
+             else{
+                b1.innerHTML=r;
+             }
              //alert(b1.click);
              b1.setAttribute('onclick', "bb('"+r+"',"+nb+");");
              b1.setAttribute("id","b"+nb);
@@ -200,14 +214,27 @@ function ecran_fin(){
 	t3.innerHTML=txt;
 	t3.style=st;
 	content.appendChild( t3 );
-	listeElements.push( t3 );
+    listeElements.push( t3 );
+
+    var aaa=document.createElement("a");
+    aaa.setAttribute("href","quiz.html?quizjs="+window.quizjs+"&titre="+window.titre+" (refait);")
     var b1=document.createElement("button");
     b1.innerHTML="Refaire le quiz ( les questions peuvent etre differentes) ";
-    b1.setAttribute('onclick', "redo();");
     b1.setAttribute("id","bredo");
     b1.setAttribute("class","button button_s3")
-    content.appendChild(b1);
-    listeElements.push( b1 );
+    aaa.appendChild(b1);
+    content.appendChild(aaa);
+    listeElements.push( aaa );
+
+    var aba=document.createElement("a");
+    aba.setAttribute("href","index.html")
+    var b2=document.createElement("button");
+    b2.innerHTML="Menu";
+    b2.setAttribute("id","bmenu");
+    b2.setAttribute("class","button button_s3")
+    aba.appendChild(b2);
+    content.appendChild(aba);
+    listeElements.push( aba );
 }
 
 function makequestions(){
@@ -505,12 +532,15 @@ function check_inp(){
 
 var parameters = location.search.substring(1).split("&");
 var qt=false;
+window.titre="Quiz";
+window.quizjs="quizs/q1/quiz.html"
 
 for(p of parameters){
     pp=p.split("=");
     if(pp.length==2){
         if(pp[0]=="titre"){
             document.getElementById("titre").innerHTML=pp[1];
+            window.titre=pp[1];
         }
         else if(pp[0]=="quizjs"){
             var qj = document.createElement("script");
@@ -519,6 +549,7 @@ for(p of parameters){
             qj.setAttribute("onload","init();");
             document.body.appendChild(qj);
             qt=true;
+            window.quizjs=pp[1];
         }
     }
 }
