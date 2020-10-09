@@ -53,6 +53,7 @@ var q40={type:"qcu",question:"En quoi consistait la NEP ?",reponses:["Interdire 
 var q41={type:"qcu",question:"Qui succède à Lénine ?",reponses:["Poutine","Trotski","Staline"],br:"Staline"};
 var q42={type:"dat",question:"Quand meurt Lénine ?",reponses:[1914,1945],br:["1924"]};
 var q43={type:"qcu",question:"Qui succède à Lénine ?",reponses:["Poutine","Trotski","Staline"],br:"Staline"};
+var q44={type:"qcu",question:"Que fait Staline dès qu'il entre au pouvoir ?",reponses:["Il déclare la guerre à l'Allemagne","Il créée l'URSS","Il met fin à la NEP"],br:"Staline"};
 
 var questions=[
 	q1,
