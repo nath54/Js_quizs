@@ -65,7 +65,22 @@ var q52={type:"dat",question:"Quand est mise en place le NKVD ?",reponses:[1914,
 var q53={type:"qcu",question:"Quels est le prétexte de la grande terreur en URSS ?",reponses:["Les activités antisoviétiques","L`industrialisation de l`URSS","La pauvreté de la population"],br:"Les activités antisoviétiques"};
 var q54={type:"qcu",question:"Qu`est-ce que le procès de Moscou ?",reponses:["Un procès contre les juifs","Les vieux Bolchéviques avouent leurs fautes et sont fusillés","Staline qui s`escuse des excès du NKVD"],br:"Les vieux Bolchéviques avouent leurs fautes et sont fusillés"};
 var q55={type:"qcu",question:"Pourquoi l`Italie n`est pas contente après la 1ere guerre mondiale ?",reponses:["Ils ont des réparations à payer","Il y a une puissante crise économique","Elle n`a pas pu récupérer des territoires d`Autriche-Hongrie"],br:"Elle n`a pas pu récupérer des territoires d`Autriche-Hongrie"};
-var q56={type:"qcu",question:"Que se passe t'il en Italie après la ?",reponses:["Ils ont des réparations à payer","Il y a une puissante crise économique","Elle n`a pas pu récupérer des territoires d`Autriche-Hongrie"],br:"Elle n`a pas pu récupérer des territoires d`Autriche-Hongrie"};
+var q56={type:"qcu",question:"Que se passe t'il en Italie après la 1ere guerre mondiale ?",reponses:["Il y a de violentes manifestations paysannes et ouvrières","Il y a de violentes manifestations bourgoises"],br:"Il y a de violentes manifestations paysannes et ouvrières"};
+var q57={type:"dat",question:"Quand est-ce que nomme Mussolini Président du Conseil ?",reponses:[1914,1945],br:["30","octobre","1922"]};
+var q58={type:"dat",question:"Quand est-ce que Mussolini fait voter les lois fascitissimes ?",reponses:[1914,1945],br:["1925"]};
+var q59={type:"dat",question:"Quand est-ce que l'Italie se raproche de l'Allemagne  ?",reponses:[1914,1945],br:["1936"]};
+var q60={type:"dat",question:"Quand est-ce que la France impose le traité de Versailles aux Allemands ?",reponses:[1914,1945],br:["28","juin","1919"]};
+var q61={type:"dat",question:"Quand est-ce que l'Allemagne va rentrer dans la Société des nations ?",reponses:[1914,1945],br:["1925"]};
+var q62={type:"dat",question:"Quand est-ce qu'Hitler échoue lamentablement dans une tentative de coup d'Etat ?",reponses:[1914,1945],br:["1923"]};
+var q63={type:"dat",question:"Quand est-ce qu'Hitler devient chancelier ?",reponses:[1914,1945],br:["30","janvier","1933"]};
+var q64={type:"dat",question:"Quand est-ce qu'a eu lieu la nuit de cristal ?",reponses:[1914,1945],br:["9","novembre","1938"]};
+var q65={type:"dat",question:"Quand est-ce qu'Hitler rétablit le service militaire ?",reponses:[1914,1945],br:["1935"]};
+var q66={type:"dat",question:"Quand est-ce qu'Hitler remilitarise la Rhémanie ?",reponses:[1914,1945],br:["mars","1936"]};
+var q67={type:"dat",question:"Quand a eu lieu la guerre civile en Espagne ?",reponses:[1914,1945],br:["1936"]};
+var q68={type:"dat",question:"Quand est-ce qu'Hitler annexe l'Autriche ?",reponses:[1914,1945],br:["mars","1938"]};
+var q69={type:"dat",question:"Quand a eu lieu la conférence de Munich ?",reponses:[1914,1945],br:["30","septembre","1938"]};
+var q70={type:"dat",question:"Quand commence la 2nd guerre mondiale ?",reponses:[1914,1945],br:["1","septembre","1939"]};
+
 
 
 var questions=[
@@ -120,4 +135,7 @@ var questions=[
 	q51,
 	q52,
 	q53,
+	q54,
+	q55,
+	q56,
 ];
