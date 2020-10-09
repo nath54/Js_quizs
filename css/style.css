@@ -93,7 +93,9 @@
 
 	header.major {
 		padding-bottom: 3em;
+		/*
 		text-transform: uppercase;
+		*/
 	}
 
 		header.major h2 {
@@ -372,7 +374,9 @@
 
 		ul.style h3 {
 			margin-bottom: 0.80em;
+			/*
 			text-transform: uppercase;
+			*/
 			font-weight: 800;
 			font-size: 2em;
 			color: #FFF;
@@ -452,7 +456,9 @@
 		cursor: pointer;
 		text-align: center;
 		text-decoration: none;
+		/*
 		text-transform: uppercase;
+		*/
 		/*
 		display: inline-block;
 		*/
@@ -544,7 +550,9 @@
 
 	#logo h1 {
 		display: inline-block;
+		/*
 		text-transform: uppercase;
+		*/
 	}
 
 /* Navigation */

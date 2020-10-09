@@ -12,7 +12,7 @@ var q3={type:"inp",question:"Définition de PIB",reponses:[],br:"Somme des riche
 
 var q1={type:"qcu",question:"Que connait l`économie mondiale en 1924",reponses:["une phase de croissance","une phase de décroissance","une phase constante"],br:"une phase de croissance"};
 var q2={type:"qcu",question:"Quel est le pays qui a une phase de prospérité spectaculaire à partir de 1924 ?",reponses:["la Chine","les USA","l`Allemagne"],br:"les USA"};
-var q3={type:"qcu",question:"Quelle est la cause du Krach Boursier de 1929 ?",reponses:["les banques ne voulaient pas preter","il y avait un fort chomage","les banques pretaient beaucoup"],br:"les banques pretaient beaucoup"};
+var q3={type:"qcu",question:"Quelle est la cause du Krach Boursier de 1929 ?",reponses:["les banques ne voulaient pas prêter","il y avait un fort chomage","les banques prêtaient beaucoup"],br:"les banques prêtaient beaucoup"};
 var q4={type:"dat",question:"Quand a eu lieu le Krach Boursier ?",reponses:[1914,1945],br:["octobre","1929"]};
 var q5={type:"qcu",question:"Qu`est-ce qu`entraine le Krach Boursier ?",reponses:["Une grande dépression","Les banques veulent prêter plus","Une entraide entre les pays"],br:"Une grande dépression"};
 var q6={type:"qcu",question:"Quelle est l`ampleur de la crise économique suite au Krach Boursier ?",reponses:["Régionale","Nationale","Continentale","Mondiale"],br:"Mondiale"};
@@ -67,5 +67,11 @@ var questions=[
 	q17,
 	q18,
 	q19,
-	q20
+	q20,
+	q21,
+	q22,
+	q23,
+	q24,
+	q25,
+	q26,
 ];
