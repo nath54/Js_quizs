@@ -38,13 +38,18 @@ var q25={type:"qcu",question:"Quelle était l`une des mesures phares des accords
 var q26={type:"qcu",question:"Est-ce que le Front Populaire reste longtemps au pouvoir ?",reponses:["Oui","Non"],br:"Non"};
 var q27={type:"dat",question:"Quand a eu lieu la premiere révolution des Bolchéviques en Russie ?",reponses:[1914,1945],br:["février","1917"]};
 var q28={type:"dat",question:"Quand a eu lieu la seconde révolution des Bolchéviques en Russie ?",reponses:[1914,1945],br:["octobre","1917"]};
-
-
-
-
-
-
-
+var q29={type:"qcu",question:"Qui était à la tête des Bolchéviques au début ?",reponses:["Lénine","Staline","Trotski"],br:"Lénine"};
+var q30={type:"dat",question:"Quand se fini la guerre civile débutée par les révolutions de 1917 ?",reponses:[1914,1945],br:["1921"]};
+var q31={type:"qcu",question:"Comment les Bolchéviques prennent le pouvoir ?",reponses:["Par un coup d'Etat","En gagnant des éléctions","L'ancient gouvernement leurs a laissé la place gentillement"],br:"Par un coup d'Etat"};
+var q32={type:"qcu",question:"Est-ce qu'après 1917, le parti Communiste est le seul parti autorisé en Russie ?",reponses:["Oui","Non"],br:"Oui"};
+var q33={type:"qcu",question:"Quelle est la police politique créée en Russie le 20 décembre 1918 ?",reponses:["La Guestapo","Les Koulaks","La Tchéka"],br:"La Tchéka"};
+var q34={type:"dat",question:"Quand a été créée la Tchéka ?",reponses:[1914,1945],br:["decembre","1918"]};
+var q35={type:"qcu",question:"Comment appelle t'on les camps d'internement et de concentration en Russie/URSS ?",reponses:["Les Ghettos","Les Koulaks","Les Goulags"],br:"Les Goulags"};
+var q36={type:"dat",question:"Quand est-ce que la Russie devient l'URSS ?",reponses:[1914,1945],br:["1922"]};
+var q37={type:"qcu",question:"Quelle était la situation de la Russie en 1921 ?",reponses:["Pays Riche","Pays Modeste","Pays Ruiné"],br:"Pays Ruiné"};
+var q38={type:"qcu",question:"Pourquoi est-ce que Lénine ne met pas tout de suite le communisme en place ?",reponses:["Car la Russie était ruiné","Car il y avait trop d'opposition","Car trop de pression des pays voisins"],br:"Car la Russie était ruiné"};
+var q39={type:"qcu",question:"Quelle politique est-ce que Lénine met en place pour sauver l'économie de la Russie/URSS ?",reponses:["Le Communisme","La collectivisation des terres","La Nouvelle Politique Economique (NEP)"],br:"La Nouvelle Politique Economique (NEP)"};
+var q40={type:"qcu",question:"En quoi consistait la NEP ?",reponses:["Interdire les entreprises privées car elles réduisent l'économie nationale","Garder les entreprises privées pour retablir l'économie","Privatiser tous les secteurs afin que les entreprises fassent le plus de profit possible"],br:"Garder les entreprises privées pour retablir l'économie"};
 
 
 var questions=[
@@ -74,4 +79,16 @@ var questions=[
 	q24,
 	q25,
 	q26,
+	q27,
+	q28,
+	q29,
+	q30,
+	q31,
+	q32,
+	q35,
+	q36,
+	q37,
+	q38,
+	q39,
+	q40,
 ];
