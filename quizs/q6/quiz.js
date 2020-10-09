@@ -53,7 +53,18 @@ var q40={type:"qcu",question:"En quoi consistait la NEP ?",reponses:["Interdire 
 var q41={type:"qcu",question:"Qui succède à Lénine ?",reponses:["Poutine","Trotski","Staline"],br:"Staline"};
 var q42={type:"dat",question:"Quand meurt Lénine ?",reponses:[1914,1945],br:["1924"]};
 var q43={type:"qcu",question:"Qui succède à Lénine ?",reponses:["Poutine","Trotski","Staline"],br:"Staline"};
-var q44={type:"qcu",question:"Que fait Staline dès qu'il entre au pouvoir ?",reponses:["Il déclare la guerre à l'Allemagne","Il créée l'URSS","Il met fin à la NEP"],br:"Staline"};
+var q44={type:"qcu",question:"Que fait Staline dès qu'il entre au pouvoir ?",reponses:["Il déclare la guerre à l'Allemagne","Il créée l'URSS","Il met fin à la NEP"],br:"Il met fin à la NEP"};
+var q45={type:"qcu",question:"Quelle est la mesure fondatrice du Communisme de Staline ?",reponses:["La collectivitisation des terres","L'appauvrissement de la population","La Nouvelle Politique Economique"],br:"La collectivitisation des terres"};
+var q46={type:"qcu",question:"Comment s'appellent les exploitations collectives agricoles en URSS ?",reponses:["Les Kolkhozes","Les Artels","Les Sovkhozes"],br:"Les Kolkhozes"};
+var q47={type:"qcu",question:"Quel est le but de la collectivitisation des terres en URSS ?",reponses:["Appauvrir la population","Réduire les inégalités","Industrialiser l'agriculture"],br:"Industrialiser l'agriculture"};
+var q48={type:"qcu",question:"Est-ce que la majorités des paysans étaient partisans de la collectivisation des terres ?",reponses:["Oui","Non"],br:"Non"};
+var q49={type:"qcu",question:"Comment s'appellent les paysans opposés à la collectivisation des terres ?",reponses:["Les Kolkhozes","Les Koulaks","Les Solvkhozes"],br:"Les Koulaks"};
+var q50={type:"dat",question:"Quand y a t'il une grande famine en URSS ?",reponses:[1914,1945],br:["1933"]};
+var q51={type:"qcu",question:"Comment s'appelle la nouvelle police politique de Staline de 1934?",reponses:["Le NKVD","La Guestapo","La Tchéka","La Guérpéon"],br:"Le NKVD"};
+var q52={type:"dat",question:"Quand est mise en place le NKVD ?",reponses:[1914,1945],br:["decembre","1934"]};
+var q53={type:"qcu",question:"Quels est le prétexte de la grande terreur en URSS ?",reponses:["Les activités antisoviétiques","L'industrialisation de l'URSS","La pauvreté de la population"],br:"Les activités antisoviétiques"};
+
+
 
 var questions=[
 	q1,
@@ -96,5 +107,15 @@ var questions=[
 	q40,
 	q41,
 	q42,
-	q43
+	q43,
+	q44,
+	q45,
+	q46,
+	q47,
+	q48,
+	q49,
+	q50,
+	q51,
+	q52,
+	q53,
 ];
