@@ -36,6 +36,9 @@ var q23={type:"qcu",question:"Qui n`était pas dans le Front Populaire lors de s
 var q24={type:"qcu",question:"Qui devient le président du conseil en février 1934 ?",reponses:["Léon Blum","Edouard Daladier","Maurice Taurez"],br:"Léon Blum"};
 var q25={type:"qcu",question:"Quelle était l`une des mesures phares des accords de Matigon ?",reponses:["3 semaines de congés payés par ans","Le droit de grève","La semaine à 40 heures de travail"],br:"La semaine à 40 heures de travail"};
 var q26={type:"qcu",question:"Est-ce que le Front Populaire reste longtemps au pouvoir ?",reponses:["Oui","Non"],br:"Non"};
+var q27={type:"dat",question:"Quand a eu lieu la premiere révolution des Bolchéviques en Russie ?",reponses:[1914,1945],br:["février","1917"]};
+var q28={type:"dat",question:"Quand a eu lieu la seconde révolution des Bolchéviques en Russie ?",reponses:[1914,1945],br:["octobre","1917"]};
+
 
 
 

@@ -156,7 +156,9 @@
 		display: block;
 		width: 100%;
 		max-width: 350px;
+		/*
 		margin: 0em auto;
+		*/
 		font-size: 1em;
 		font-weight: 600;
 	}

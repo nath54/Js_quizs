@@ -81,7 +81,7 @@ function pq(q){
         var reponses=traiteRep(q.reponses);
         reponses_q=reponses;
         var divq=document.createElement("div");
-        divq.setAttribute("class","row no-collapse-1 center")
+        divq.setAttribute("class","ligne")//"row no-collapse-1 center")
 
         for( r of reponses ){
              var b1=document.createElement("button");
