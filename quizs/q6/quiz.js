@@ -50,7 +50,9 @@ var q37={type:"qcu",question:"Quelle était la situation de la Russie en 1921 ?"
 var q38={type:"qcu",question:"Pourquoi est-ce que Lénine ne met pas tout de suite le communisme en place ?",reponses:["Car la Russie était ruiné","Car il y avait trop d'opposition","Car trop de pression des pays voisins"],br:"Car la Russie était ruiné"};
 var q39={type:"qcu",question:"Quelle politique est-ce que Lénine met en place pour sauver l'économie de la Russie/URSS ?",reponses:["Le Communisme","La collectivisation des terres","La Nouvelle Politique Economique (NEP)"],br:"La Nouvelle Politique Economique (NEP)"};
 var q40={type:"qcu",question:"En quoi consistait la NEP ?",reponses:["Interdire les entreprises privées car elles réduisent l'économie nationale","Garder les entreprises privées pour retablir l'économie","Privatiser tous les secteurs afin que les entreprises fassent le plus de profit possible"],br:"Garder les entreprises privées pour retablir l'économie"};
-
+var q41={type:"qcu",question:"Qui succède à Lénine ?",reponses:["Poutine","Trotski","Staline"],br:"Staline"};
+var q42={type:"dat",question:"Quand meurt Lénine ?",reponses:[1914,1945],br:["1924"]};
+var q43={type:"qcu",question:"Qui succède à Lénine ?",reponses:["Poutine","Trotski","Staline"],br:"Staline"};
 
 var questions=[
 	q1,
@@ -91,4 +93,7 @@ var questions=[
 	q38,
 	q39,
 	q40,
+	q41,
+	q42,
+	q43
 ];
