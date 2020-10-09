@@ -10,9 +10,9 @@ var q18={type:"dat",question:"Quand Louis XVI meurt-il ?",reponses:[1785,1815],b
 var q3={type:"inp",question:"Définition de PIB",reponses:[],br:"Somme des richesses produites dans un pays et en une année donnée"};
 */
 
-var q1={type:"qcu",question:"Que connait l`économie mondiale en 1924",reponses:["une phase de croissance","une phase de décroissance","une phase constante"],br:"une phase de croissance"};
-var q2={type:"qcu",question:"Quel est le pays qui a une phase de prospérité spectaculaire à partir de 1924 ?",reponses:["la Chine","les USA","l`Allemagne"],br:"les USA"};
-var q3={type:"qcu",question:"Quelle est la cause du Krach Boursier de 1929 ?",reponses:["les banques ne voulaient pas prêter","il y avait un fort chomage","les banques prêtaient beaucoup"],br:"les banques prêtaient beaucoup"};
+var q1={type:"qcu",question:"Que connait l`économie mondiale en 1924",reponses:["Une phase de croissance","Une phase de décroissance","Une phase constante"],br:"Une phase de croissance"};
+var q2={type:"qcu",question:"Quel est le pays qui a une phase de prospérité spectaculaire à partir de 1924 ?",reponses:["La Chine","Les USA","L`Allemagne"],br:"Les USA"};
+var q3={type:"qcu",question:"Quelle est la cause du Krach Boursier de 1929 ?",reponses:["Les banques ne voulaient pas prêter","Il y avait un fort chomage","Les banques prêtaient beaucoup"],br:"les banques prêtaient beaucoup"};
 var q4={type:"dat",question:"Quand a eu lieu le Krach Boursier ?",reponses:[1914,1945],br:["octobre","1929"]};
 var q5={type:"qcu",question:"Qu`est-ce qu`entraine le Krach Boursier ?",reponses:["Une grande dépression","Les banques veulent prêter plus","Une entraide entre les pays"],br:"Une grande dépression"};
 var q6={type:"qcu",question:"Quelle est l`ampleur de la crise économique suite au Krach Boursier ?",reponses:["Régionale","Nationale","Continentale","Mondiale"],br:"Mondiale"};
@@ -24,12 +24,12 @@ var q11={type:"qcu",question:"Quels sont les conséquences des politiques de dé
 var q12={type:"qcu",question:"Que n`a pas dit H.Hoover ?",reponses:["Les Américains sont aujourd`hui plus près qu`aucune autre nation de vaincre la pauvreté","Mon objectif, c`est un poulet dans chaque casserole, et une voiture dans chaque garage","Venez, achetez, empruntez, c`est gratuit !"],br:"Venez, achetez, empruntez, c`est gratuit !"};
 var q13={type:"dat",question:"Quelle etait la date des élections opposant H.Hoover à FD Roosvelt ?",reponses:[1914,1945],br:["1932"]};
 var q14={type:"qcu",question:"Qui a remporté les elections de 1932 ?",reponses:["Franklin Delano Roosvelt","Herbert Hoover","Calvin Coolidge"],br:"Franklin Delano Roosvelt"};
-var q15={type:"qcu",question:"Que propose FD Roosvelt lors de son premier mandat ?",reponses:["the New Deal","the Last Deal","the Best Deal"],br:"the New Deal"};
+var q15={type:"qcu",question:"Que propose FD Roosvelt lors de son premier mandat ?",reponses:["The New Deal","The Last Deal","The Best Deal"],br:"The New Deal"};
 var q16={type:"qcu",question:"Est-ce que FD Roosvelt met en place de Grands Travaux ?",reponses:["Oui","Non"],br:"Oui"};
 var q17={type:"qcu",question:"Pour FD Roosvelt, qu`est-ce qu`une politique moderne ?",reponses:["Une politique de déflation","Une politique de persécution","Une politique d`importation","Une politique de communication"],br:"Une politique de communication"};
 var q18={type:"qcu",question:"Que devient les USA grâce à FD Roosvelt ?",reponses:["Un Etat Laïque","Un Etat Exeptionnel","Un Etat Providence","Un Etat Capitaliste"],br:"Un Etat Providence"};
 var q19={type:"qcu",question:"Quel est le bilan du New Deal ?",reponses:["Une agravation de la crise mais une amélioration du moral de la population","Une amélioration de la crise mais une diminution du moral de la population","Un bilan mitigé mais une amélioration du moral de la population","Un bilan exceptionnel et une amélioration du moral de la population"],br:"Un bilan mitigé mais une amélioration du moral de la population"};
-var q20={type:"qcu",question:"Quel était le gouvernement en France après la 1ere guerre mondiale ?",reponses:["La 2nd République","La 3eme République","La quatrième République"],br:"La 3eme République"};
+var q20={type:"qcu",question:"Quel était le gouvernement en France après la 1ere guerre mondiale ?",reponses:["La 2nd République","La 3eme République","La 4eme République"],br:"La 3eme République"};
 var q21={type:"dat",question:"Quand est-ce que la France est touchés par la crise ?",reponses:[1914,1945],br:["1932"]};
 var q22={type:"dat",question:"Quand est-ce qu`il y a de fortes manifestations politiques à Paris ?",reponses:[1914,1945],br:["6","février","1934"]};
 var q23={type:"qcu",question:"Qui n`était pas dans le Front Populaire lors de sa formation ?",reponses:["Les radicaux","Les socialistes","Les communistes","Les antisocialistes"],br:"Les antisocialistes"};
