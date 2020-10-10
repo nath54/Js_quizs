@@ -2,7 +2,7 @@
 var lmois=["janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"]
 var listeElements=[];
 var points=0;
-var nbqt=10;
+var nbqt=20;
 var nbq=0;
 var qsts=[];
 var dt=new Date();
