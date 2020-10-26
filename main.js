@@ -51,6 +51,8 @@ function traiteRep(reps){
 }
 
 function pq(q){
+    //
+    window.reponses_qcm=[];
 	repondu=false;
 	//nettoyage de la page
 	for(e of listeElements ){
@@ -84,108 +86,145 @@ function pq(q){
         divq.setAttribute("class","ligne")//"row no-collapse-1 center")
 
         for( r of reponses ){
-             var b1=document.createElement("button");
-             if(r.startsWith("quizs/")){
+            var b1=document.createElement("button");
+            if(r.startsWith("quizs/")){
                 var i = document.createElement("img");
                 i.setAttribute("src",r);
                 i.setAttribute("class","img_bt");
                 b1.appendChild(i);
-             }
-             else{
+            }
+            else{
                 b1.innerHTML=r;
-             }
-             //alert(b1.click);
-             b1.setAttribute('onclick', "bb('"+r+"',"+nb+");");
-             b1.setAttribute("id","b"+nb);
-             b1.setAttribute("class","button_s1 button");
-             divq.appendChild(b1);
-             //listeElements.push( b1 );
-             nb++;
-         }
-         content.appendChild(divq);
-         listeElements.push( divq );
-     }
-     else if(q.type=="dat"){
-         if(q.br.length>=3){
-             var s1=document.createElement("select");
-             s1.setAttribute("id","s1");
-             var so1=document.createElement("optgroup");
-             so1.innerHTML="jours";
-             for(x=1;x<31;x++){
-                 o=document.createElement("option");
-                 o.innerHTML=""+x;
-                 so1.appendChild(o);
-             }
-             s1.appendChild(so1);
-             s1.setAttribute("onClick","update_dat();");
-             content.appendChild(s1);
-             listeElements.push(s1);
-         }
-         if(q.br.length>=2){
-             var s2=document.createElement("select");
-             s2.setAttribute("id","s2");
-             var so2=document.createElement("optgroup");
-             so2.innerHTML="mois";
-             for(x=0;x<lmois.length;x++){
-                 o=document.createElement("option");
-                 o.innerHTML=""+lmois[x];
-                 so2.appendChild(o);
-             }
-             s2.appendChild(so2);
-             s2.setAttribute("onClick","update_dat();");
-             content.appendChild(s2);
-             listeElements.push(s2);
-         }
-         var s3=document.createElement("select");
-         s3.setAttribute("id","s3");
-         var so3=document.createElement("optgroup");
-         so3.innerHTML="annee";
-         for(x=q.reponses[0];x<q.reponses[1];x++){
-             o=document.createElement("option");
-             o.innerHTML=""+x;
-             o.setAttribute("onClick","update_dat();");
-             so3.appendChild(o);
-         }
-         s3.appendChild(so3);
-         s3.setAttribute("onClick","update_dat();");
-         content.appendChild(s3);
-         listeElements.push(s3);
-         var ppp=document.createElement("p");
-         ppp.innerHTML=""
-         ppp.setAttribute("id","pd");
-         content.appendChild(ppp);
-         listeElements.push(ppp);
-         var nbt=document.createElement("button");
-         nbt.setAttribute("class","button button_s2")
-         nbt.innerHTML="confirmer";
-         nbt.setAttribute("onClick","check_date();");
-         nbt.setAttribute("id","qsuiv");
-         content.appendChild(nbt);
-         listeElements.push(nbt);
-     }
-     else if(q.type=="inp"){
-         var t=document.createElement("h2");
-         t.innerHTML="Retenez bien, Vous devrez recopier la définition mot pour mot";
-         var p=document.createElement("p");
-         p.innerHTML=q.br;
-         var bt=document.createElement("button");
-         bt.setAttribute("onClick","inpet2();");
-         bt.innerHTML="C'est bon, je connais !";
-         bt.setAttribute("class","button button_s2");
-         content.appendChild( t );
-         content.appendChild( p );
-         content.appendChild( bt );
-         listeElements.push(t);
-         listeElements.push(p);
-         listeElements.push(bt);
-     }
-     document.getElementById("qe").value=q;
+            }
+            b1.setAttribute('onclick', "bb('"+r+"',"+nb+");");
+            b1.setAttribute("id","b"+nb);
+            b1.setAttribute("class","button_s1 button");
+            divq.appendChild(b1);
+            nb++;
+        }
+        content.appendChild(divq);
+        listeElements.push( divq );
+    }
+    else if(q.type=="dat"){
+        if(q.br.length>=3){
+            var s1=document.createElement("select");
+            s1.setAttribute("id","s1");
+            var so1=document.createElement("optgroup");
+            so1.innerHTML="jours";
+            for(x=1;x<31;x++){
+                o=document.createElement("option");
+                o.innerHTML=""+x;
+                so1.appendChild(o);
+            }
+            s1.appendChild(so1);
+            s1.setAttribute("onClick","update_dat();");
+            content.appendChild(s1);
+            listeElements.push(s1);
+        }
+        if(q.br.length>=2){
+            var s2=document.createElement("select");
+            s2.setAttribute("id","s2");
+            var so2=document.createElement("optgroup");
+            so2.innerHTML="mois";
+            for(x=0;x<lmois.length;x++){
+                o=document.createElement("option");
+                o.innerHTML=""+lmois[x];
+                so2.appendChild(o);
+            }
+            s2.appendChild(so2);
+            s2.setAttribute("onClick","update_dat();");
+            content.appendChild(s2);
+            listeElements.push(s2);
+        }
+        var s3=document.createElement("select");
+        s3.setAttribute("id","s3");
+        var so3=document.createElement("optgroup");
+        so3.innerHTML="annee";
+        for(x=q.reponses[0];x<q.reponses[1];x++){
+            o=document.createElement("option");
+            o.innerHTML=""+x;
+            o.setAttribute("onClick","update_dat();");
+            so3.appendChild(o);
+        }
+        s3.appendChild(so3);
+        s3.setAttribute("onClick","update_dat();");
+        content.appendChild(s3);
+        listeElements.push(s3);
+        var ppp=document.createElement("p");
+        ppp.innerHTML=""
+        ppp.setAttribute("id","pd");
+        content.appendChild(ppp);
+        listeElements.push(ppp);
+        var nbt=document.createElement("button");
+        nbt.setAttribute("class","button button_s2")
+        nbt.innerHTML="confirmer";
+        nbt.setAttribute("onClick","check_date();");
+        nbt.setAttribute("id","qsuiv");
+        content.appendChild(nbt);
+        listeElements.push(nbt);
+    }
+    else if(q.type=="inp"){
+        var t=document.createElement("h2");
+        t.innerHTML="Retenez bien, Vous devrez recopier la définition mot pour mot";
+        var p=document.createElement("p");
+        p.innerHTML=q.br;
+        var bt=document.createElement("button");
+        bt.setAttribute("onClick","inpet2();");
+        bt.innerHTML="C'est bon, je connais !";
+        bt.setAttribute("class","button button_s2");
+        content.appendChild( t );
+        content.appendChild( p );
+        content.appendChild( bt );
+        listeElements.push(t);
+        listeElements.push(p);
+        listeElements.push(bt);
+    }
+    else if(q.type=="qcm"){
+        //Titre
+        t.innerHTML=q.question;
+        content.appendChild( t );
+        listeElements.push( t );
+        //
+        window.bonnes_reponses=q.br;
+        var reponses=traiteRep(q.reponses);
+        reponses_q=reponses;
+        var divq=document.createElement("div");
+        divq.setAttribute("class","colonne")//"row no-collapse-1 center")
+        nb=0;
+        for(r of reponses_q){
+            //
+            var choix=document.createElement("button");
+            choix.innerHTML=r;
+            choix.setAttribute("class","button button_s1 button_qcm");
+            choix.setAttribute("onclick","qcm_press('bt_qcm_"+nb+"');");
+            choix.setAttribute("id","bt_qcm_"+nb)
+            choix.checked=false;
+            //
+            divq.appendChild( choix );
+            //
+            nb++;
+        }
+        content.appendChild( divq );
+        listeElements.push( divq );
+        var bt_rep=document.createElement("button");
+        bt_rep.innerHTML="Répondre";
+        bt_rep.setAttribute("class","button button_s3")
+        bt_rep.setAttribute("onclick","rep_qcm();")
+        bt_rep.setAttribute("id","bt_rep_qcm");
+        content.appendChild( bt_rep );
+        listeElements.push( bt_rep );
+    }
+    document.getElementById("qe").value=q;
 }
 
 function ecran_fin(){
 	//nettoyage de la page
 	for(e of listeElements ){
-		content.removeChild(e);
+        try{
+            content.removeChild(e);
+        }
+        catch{
+        }
 	}
 	listeElements=[];
 	//afichage
@@ -257,7 +296,6 @@ function redo(){
 }
 
 function bb(txt,num){
-	//alert("1 "+txt+" - "+num+" - "+repondu)
 	if( repondu ){
 		return false;
 	}
@@ -269,20 +307,14 @@ function bb(txt,num){
 	if( qq.br == txt ){
         points++;
         bt.setAttribute("style","background-color:green");
-//        alert("Bonne réponse !");
     }
     else{
-//        alert("erreur, la bonne réponse était : "+qq.reponses[qq.br-1]);
         bt.setAttribute("style","background-color:red");
-      //  alert(qq.reponses.indexOf(qq.br)+1);
-      //  alert(qq.reponses);
-        //alert(qq.br);
         try{
             var bbt=document.getElementById("b"+(reponses_q.indexOf(qq.br)+1));
             bbt.setAttribute("style","background-color:green");
         }
         catch{
-            
         }
     }
     var nbt=document.createElement("button");
@@ -294,6 +326,56 @@ function bb(txt,num){
     listeElements.push(nbt);
 }
 
+function rep_qcm(){
+	if( repondu ){
+		return false;
+	}
+	else{
+		repondu=true;
+	}
+	var qq=document.getElementById("qe").value;
+    window.bonnes_reponses.sort();
+    window.reponses_qcm.sort();
+    var t1=window.bonnes_reponses.join(" ");
+    var t2=window.reponses_qcm.join(" ");
+    console.log(t1 , t2);
+	if( t1 == t2 ){
+        points++;
+        var jj=[];
+        for(r of window.reponses_qcm){jj.push(r)};
+        for(rr of jj){
+            var idb="bt_qcm_"+(reponses_q.indexOf(rr));
+            var bbt=document.getElementById(idb);
+            bbt.setAttribute("style","background-color:green");
+        }
+    }
+    else{
+        var jj=[];
+        for(r of window.reponses_qcm){jj.push(r)};
+        for(r of window.bonnes_reponses){
+            if(!jj.includes(r)){ jj.push(r); }
+        }
+        for(rr of jj){
+            var idb="bt_qcm_"+(reponses_q.indexOf(rr));
+            var bbt=document.getElementById(idb)
+            if(window.bonnes_reponses.includes(bbt.innerHTML)){
+                bbt.setAttribute("style","background-color:green");
+            }
+            else{
+                bbt.setAttribute("style","background-color:red");
+            }
+        }
+    }
+    delete listeElements[listeElements.indexOf(document.getElementById("bt_rep_qcm"))];
+    content.removeChild(document.getElementById("bt_rep_qcm"));
+    var nbt=document.createElement("button");
+    nbt.innerHTML="question suivante";
+    nbt.setAttribute("onClick","qsuiv();");
+    nbt.setAttribute("id","qsuiv");
+    nbt.setAttribute("class","button button_s3")
+    content.appendChild(nbt);
+    listeElements.push(nbt);
+}
 function qsuiv(){
 	nbq++;
 	if( nbq >= nbqt){
@@ -333,18 +415,11 @@ function check_date(){
 	if(l>=2){
         var rep=[moi,an];
         var cond=b[0]+'_'+b[1]==rep[0]+'_'+rep[1];
-        
     }
     if(l>=3){
         var rep=[jour,moi,an];
         var cond=b[0]+'_'+b[1]+'_'+b[2]==rep[0]+'_'+rep[1]+'_'+rep[2];
-        //alert(b[0]+'_'+b[1]+'_'+b[2]+"  "+rep[0]+'_'+rep[1]+'_'+rep[2]);
-       // alert(cond);
     }
-    //alert(b[0]+'_'+b[1]+'_'+b[2]);
-    //alert(rep[0]+'_'+rep[1]+'_'+rep[2]);
-	//alert(cond);
-	//nettoyage de la page
 	for(e of listeElements ){
 		content.removeChild(e);
 	}
@@ -362,7 +437,6 @@ function check_date(){
     t.innerHTML= qq.question;
     content.appendChild(t);
     listeElements.push( t );
-	
     if( cond ){
         points+=1;
         var tt=document.createElement("h2");
@@ -501,7 +575,6 @@ function check_inp(){
     listeElements.push( p2 );
     var p=document.createElement("p");
     //
-    
     var tt=document.createElement("h2");
     //alert(traiteInp(rep));
    // alert(traiteInp(qq.br));
@@ -527,6 +600,26 @@ function check_inp(){
     listeElements.push(tt);
     listeElements.push(p);
 }
+
+
+function arrayRemove(arr, value) { return arr.filter(function(ele){ return ele != value; });}
+
+function qcm_press(id_bt){
+    var bt=document.getElementById(id_bt);
+    if(bt.checked){
+        bt.checked=false;
+        bt.setAttribute("class","button button_s1  button_qcm");
+        //
+        window.reponses_qcm=arrayRemove(window.reponses_qcm,bt.innerHTML);
+    }
+    else{
+        bt.checked=true;
+        bt.setAttribute("class","button button_s2  button_qcm");
+        //
+        window.reponses_qcm.push(bt.innerHTML);
+    }
+}
+
 
 /////////////////////////////////////////////////////////// MAIN CODE ///////////////////////////////////////////////////////////
 
@@ -561,10 +654,6 @@ if(!qt){
 
 function init(){
     makequestions();
-
     document.getElementById("qe").value=qsts[nbq];
     pq(qsts[nbq]);
-
 }
-
-
