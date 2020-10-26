@@ -7,8 +7,6 @@ var q={type:"",question:"",reponses:[],br:0};
 //var q4={type:"qcm",question:"Question a choix multiples ?",reponses:["Choix 1","Choix 2","Choix 3","Autant de choix qu'on veut"],br:["Bon choix 1","Bon choix 2"]};
 //var q5={type:"voc",question:"Traduire mot en langue",reponses:[],br:["Traduction dans une autre langue 2","On a le droit aux synonymes"]}
 
-
 var q1={type:"qcm",question:"Qu'à dit René Descartes ?",reponses:["Je pense donc je suis","Je suis, j'existe","J'existe je suis","Je pense, je suis"],br:["Je pense donc je suis","Je suis, j'existe"]};
 
 var questions=[q1];
-
