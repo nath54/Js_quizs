@@ -84,7 +84,7 @@ var questions=[
     
     //ir
     {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe ir à la 1ere personne du singulier",reponses:[],br:["voy"]},
-    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe ir à la 2eme personne du singulier",reponses:[],br:["bas"]},
+    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe ir à la 2eme personne du singulier",reponses:[],br:["vas"]},
     {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe ir à la 3eme personne du singulier",reponses:[],br:["va"]},
     {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe ir à la 1ere personne du pluriel",reponses:[],br:["vamos"]},
     {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe ir à la 2eme personne du pluriel",reponses:[],br:["vais"]},
