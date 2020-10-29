@@ -13,6 +13,76 @@ var content=document.getElementById("content");
 
 /////////////////////////////////////////////////////////// FONCTIONS ///////////////////////////////////////////////////////////
 
+function traitre_txt(txt){
+    ntxt=txt
+    ntxt=txt.toLowerCase();
+    replacements={
+        "é":"e",
+        "è":"e",
+        "ê":"e",
+        "ë":"e",
+        "â":"a",
+        "ä":"a",
+        "à":"a",
+        "á":"a",
+        "ç":"c",
+        "ù":"u",
+        "ú":"u",
+        "û":"u",
+        "ü":"u",
+        "î":"i",
+        "ï":"i",
+        "í":"i",
+        "ö":"o",
+        "ô":"o",
+        "ó":"o",
+        "ñ":"n",
+        " ":"",
+        "\t":"",
+        "\r":"",
+        "\n":"",
+        "!":"",
+        ",":"",
+        "?":"",
+        ";":"",
+        ".":"",
+        ":":"",
+        "/":"",
+        "§":"",
+        "%":"",
+        "*":"",
+        "-":"",
+        "_":"",
+        "'":"",
+        '"':"",
+        "(":"",
+        ")":"",
+        "&":"",
+        "#":"",
+        "{":"",
+        "[":"",
+        "|":"",
+        "`":"",
+        "\\":"",
+        "^":"",
+        "@":"",
+        "]":"",
+        "}":"",
+        "=":"",
+        "+":"",
+        "°":"",
+        "€":"",
+        "£":"",
+        "µ":"",
+        "’":""
+    }
+    for(k of Object.keys(replacements)){
+        while(ntxt.includes(k)){ ntxt=ntxt.replace(k,replacements[k]); }
+    }
+
+    return ntxt
+}
+
 function randomchoice(liste){
 	var n=Math.random()*liste.length;
 	return liste[ parseInt(n) ];
@@ -214,6 +284,30 @@ function pq(q){
         content.appendChild( bt_rep );
         listeElements.push( bt_rep );
     }
+    else if(q.type=="voc"){
+        window.bonne_reponse=q.br;
+        var t=document.createElement("h2");
+        var inp=document.createElement("input");
+        var tr=document.createElement("p");
+        var bt=document.createElement("button");
+        t.innerHTML=q.question;
+        tr.setAttribute("id","txt_rep");
+        inp.setAttribute("type","text");
+        inp.setAttribute("id","input");
+        inp.setAttribute("onkeypress","checkEnterVoc(event);");
+        bt.setAttribute("onclick","rep_voc();");
+        bt.setAttribute("class","button button_s3");
+        bt.setAttribute("id","button");
+        bt.innerHTML="ok";
+        content.appendChild( t );
+        content.appendChild( tr );
+        content.appendChild( inp );
+        content.appendChild( bt );
+        listeElements.push(t);
+        listeElements.push(tr);
+        listeElements.push(inp);
+        listeElements.push(bt);
+    }
     document.getElementById("qe").value=q;
 }
 
@@ -376,6 +470,35 @@ function rep_qcm(){
     content.appendChild(nbt);
     listeElements.push(nbt);
 }
+
+function rep_voc(){
+    br=window.bonne_reponse
+    rep=document.getElementById("input").value;
+    good=false;
+    if(typeof br == "string"){
+        good=traitre_txt(br)==traitre_txt(rep)
+    }
+    else{
+        for(r of br){
+            if(!good){
+                good=traitre_txt(r)==traitre_txt(rep)
+            }
+        }
+    }
+    if(good){
+        points++;
+        document.getElementById("txt_rep").innerHTML="Bonne réponse !";
+        document.getElementById("txt_rep").style.color="green";
+    }
+    else{
+        document.getElementById("txt_rep").innerHTML="Mauvaise réponse ! La bonne réponse était "+br;
+        document.getElementById("txt_rep").style.color="red";
+    }
+    document.getElementById("input").setAttribute("onkeypress","checkEnterSuiv(event);");
+    document.getElementById("button").innerHTML="question suivante";
+    document.getElementById("button").setAttribute("onclick","qsuiv();")
+}
+
 function qsuiv(){
 	nbq++;
 	if( nbq >= nbqt){
@@ -619,6 +742,20 @@ function qcm_press(id_bt){
         window.reponses_qcm.push(bt.innerHTML);
     }
 }
+
+
+function checkEnterVoc(e) {
+    if(e && e.keyCode == 13) {
+       rep_voc();
+    }
+ }
+
+function checkEnterSuiv(e) {
+    if(e && e.keyCode == 13) {
+        qsuiv();
+    }
+}
+
 
 
 /////////////////////////////////////////////////////////// MAIN CODE ///////////////////////////////////////////////////////////
