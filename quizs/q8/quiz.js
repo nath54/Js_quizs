@@ -163,12 +163,12 @@ var questions=[
     {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe cerrar à la 3eme personne du pluriel",reponses:[],br:["cierran"]},
     
     //acordarse
-    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 1ere personne du singulier",reponses:[],br:["acuerdo"]},
-    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 2eme personne du singulier",reponses:[],br:["acuerdas"]},
-    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 3eme personne du singulier",reponses:[],br:["acuerda"]},
-    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 1ere personne du pluriel",reponses:[],br:["acordamos"]},
-    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 2eme personne du pluriel",reponses:[],br:["acordáis"]},
-    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 3eme personne du pluriel",reponses:[],br:["acuerdan"]},
+    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 1ere personne du singulier",reponses:[],br:["me acuerdo"]},
+    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 2eme personne du singulier",reponses:[],br:["te acuerdas"]},
+    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 3eme personne du singulier",reponses:[],br:["se acuerda"]},
+    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 1ere personne du pluriel",reponses:[],br:["nos acordamos"]},
+    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 2eme personne du pluriel",reponses:[],br:["os acordáis"]},
+    {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe acordarse à la 3eme personne du pluriel",reponses:[],br:["se acuerdan"]},
     
     //entender
     {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe entender à la 1ere personne du singulier",reponses:[],br:["entiendo"]},
