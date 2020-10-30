@@ -8,8 +8,8 @@ var q={type:"",question:"",reponses:[],br:0};
 //var q5={type:"voc",question:"Traduire mot en langue",reponses:[],br:["Traduction dans une autre langue 2","On a le droit aux synonymes"]}
 
 var questions=[
-    {type:"qcu",question:"Comment appelle-t-on l'énergie prélevée directement dans la nature",reponses:["L'énergie primaire","L'énergie secondaire","L'énergie naturelle"],br:"L'énergie primaire"},
-    {type:"qcu",question:"Comment appelle-t-on l'énergie que l'être humain a convertie",reponses:["L'énergie primaire","L'énergie secondaire","L'énergie tertiaire"],br:"L'énergie secondaire"},
+    {type:"qcu",question:"Comment appelle-t-on l\'énergie prélevée directement dans la nature",reponses:["L\'énergie primaire","L\'énergie secondaire","L\'énergie naturelle"],br:"L\'énergie primaire"},
+    {type:"qcu",question:"Comment appelle-t-on l\'énergie que l\'être humain a convertie",reponses:["L\'énergie primaire","L\'énergie secondaire","L\'énergie tertiaire"],br:"L\'énergie secondaire"},
     {type:"inp",question:"Quelle est la définition d'une ressource non renouvelable ?",reponses:[],br:"Une ressource dont l'exploitation et la consommation se fait nettement plus vite que le temps requis à la ressource pour ce regénérer"},
     {type:"qcu",question:"Quelle est la bonne formule qui lie l'énergie (en joule), la puissance(en W) et le temps dt (en secondes) ?",reponses:["E = P / dt","dt = P / E","P = E / Dt"],br:"P = E / Dt"},
     {type:"qcm",question:"Quelles unités sont des unités d'énergie ?",reponses:["La tonne équivalent pétrole (tep)","Le Watt (W)","Le joule (J)","Le kilowattheure (kWh)"],br:["La tonne équivalent pétrole (tep)","Le joule (J)","Le kilowattheure (kWh)"]},

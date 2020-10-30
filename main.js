@@ -126,7 +126,7 @@ function pq(q){
 	repondu=false;
 	//nettoyage de la page
 	for(e of listeElements ){
-		content.removeChild(e);
+        content.removeChild(e);
 	}
 	listeElements=[];
 	//création des éléments
@@ -138,8 +138,8 @@ function pq(q){
     listeElements.push( p1 );
     content.appendChild(p2);
     listeElements.push( p2 );
-    var t=document.getElementById("qe");
-    t.innerHTML= q.question;
+    var titre=document.getElementById("qe");
+    titre.innerHTML= q.question;
     if(q["image"]!=undefined){
         document.getElementById("im").setAttribute("src",q.image);
     }
@@ -166,7 +166,7 @@ function pq(q){
             else{
                 b1.innerHTML=r;
             }
-            b1.setAttribute('onclick', "bb('"+r+"',"+nb+");");
+            b1.setAttribute('onclick', 'bb("'+r+'",'+nb+');');
             b1.setAttribute("id","b"+nb);
             b1.setAttribute("class","button_s1 button");
             divq.appendChild(b1);
@@ -251,9 +251,7 @@ function pq(q){
     }
     else if(q.type=="qcm"){
         //Titre
-        t.innerHTML=q.question;
-        content.appendChild( t );
-        listeElements.push( t );
+        titre.innerHTML=q.question;
         //
         window.bonnes_reponses=q.br;
         var reponses=traiteRep(q.reponses);
@@ -460,8 +458,16 @@ function rep_qcm(){
             }
         }
     }
-    delete listeElements[listeElements.indexOf(document.getElementById("bt_rep_qcm"))];
+    //
+    var ll = [];
+    for(elt of listeElements){
+        if(elt!=document.getElementById("bt_rep_qcm")){
+            ll.push(elt);
+        }
+    }
+    listeElements = ll;
     content.removeChild(document.getElementById("bt_rep_qcm"));
+    //
     var nbt=document.createElement("button");
     nbt.innerHTML="question suivante";
     nbt.setAttribute("onClick","qsuiv();");
