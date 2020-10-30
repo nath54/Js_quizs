@@ -701,7 +701,7 @@ function check_inp(){
     var tt=document.createElement("h2");
     //alert(traiteInp(rep));
    // alert(traiteInp(qq.br));
-    if(traiteInp(rep)==traiteInp(qq.br)){
+    if(traitre_txt(rep)==traitre_txt(qq.br)){
         tt.innerHTML="Vous avez juste !";
         tt.setAttribute("style","color:green;");
         points+=1;
