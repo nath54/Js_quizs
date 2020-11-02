@@ -710,4 +710,9 @@
 	max-width: 500px;
 }
 
+input[type="text"]{
+	border:1px solid black;
+	margin:10px;
+}
+
 

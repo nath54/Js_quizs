@@ -13,6 +13,76 @@ var content=document.getElementById("content");
 
 /////////////////////////////////////////////////////////// FONCTIONS ///////////////////////////////////////////////////////////
 
+function traitre_txt(txt){
+    ntxt=txt
+    ntxt=txt.toLowerCase();
+    replacements={
+        "é":"e",
+        "è":"e",
+        "ê":"e",
+        "ë":"e",
+        "â":"a",
+        "ä":"a",
+        "à":"a",
+        "á":"a",
+        "ç":"c",
+        "ù":"u",
+        "ú":"u",
+        "û":"u",
+        "ü":"u",
+        "î":"i",
+        "ï":"i",
+        "í":"i",
+        "ö":"o",
+        "ô":"o",
+        "ó":"o",
+        "ñ":"n",
+        " ":"",
+        "\t":"",
+        "\r":"",
+        "\n":"",
+        "!":"",
+        ",":"",
+        "?":"",
+        ";":"",
+        ".":"",
+        ":":"",
+        "/":"",
+        "§":"",
+        "%":"",
+        "*":"",
+        "-":"",
+        "_":"",
+        "'":"",
+        '"':"",
+        "(":"",
+        ")":"",
+        "&":"",
+        "#":"",
+        "{":"",
+        "[":"",
+        "|":"",
+        "`":"",
+        "\\":"",
+        "^":"",
+        "@":"",
+        "]":"",
+        "}":"",
+        "=":"",
+        "+":"",
+        "°":"",
+        "€":"",
+        "£":"",
+        "µ":"",
+        "’":""
+    }
+    for(k of Object.keys(replacements)){
+        while(ntxt.includes(k)){ ntxt=ntxt.replace(k,replacements[k]); }
+    }
+
+    return ntxt
+}
+
 function randomchoice(liste){
 	var n=Math.random()*liste.length;
 	return liste[ parseInt(n) ];
@@ -56,7 +126,7 @@ function pq(q){
 	repondu=false;
 	//nettoyage de la page
 	for(e of listeElements ){
-		content.removeChild(e);
+        content.removeChild(e);
 	}
 	listeElements=[];
 	//création des éléments
@@ -68,8 +138,8 @@ function pq(q){
     listeElements.push( p1 );
     content.appendChild(p2);
     listeElements.push( p2 );
-    var t=document.getElementById("qe");
-    t.innerHTML= q.question;
+    var titre=document.getElementById("qe");
+    titre.innerHTML= q.question;
     if(q["image"]!=undefined){
         document.getElementById("im").setAttribute("src",q.image);
     }
@@ -96,7 +166,7 @@ function pq(q){
             else{
                 b1.innerHTML=r;
             }
-            b1.setAttribute('onclick', "bb('"+r+"',"+nb+");");
+            b1.setAttribute('onclick', 'bb("'+r+'",'+nb+');');
             b1.setAttribute("id","b"+nb);
             b1.setAttribute("class","button_s1 button");
             divq.appendChild(b1);
@@ -181,9 +251,7 @@ function pq(q){
     }
     else if(q.type=="qcm"){
         //Titre
-        t.innerHTML=q.question;
-        content.appendChild( t );
-        listeElements.push( t );
+        titre.innerHTML=q.question;
         //
         window.bonnes_reponses=q.br;
         var reponses=traiteRep(q.reponses);
@@ -213,6 +281,30 @@ function pq(q){
         bt_rep.setAttribute("id","bt_rep_qcm");
         content.appendChild( bt_rep );
         listeElements.push( bt_rep );
+    }
+    else if(q.type=="voc"){
+        window.bonne_reponse=q.br;
+        var t=document.createElement("h2");
+        var inp=document.createElement("input");
+        var tr=document.createElement("p");
+        var bt=document.createElement("button");
+        t.innerHTML=q.question;
+        tr.setAttribute("id","txt_rep");
+        inp.setAttribute("type","text");
+        inp.setAttribute("id","input");
+        inp.setAttribute("onkeypress","checkEnterVoc(event);");
+        bt.setAttribute("onclick","rep_voc();");
+        bt.setAttribute("class","button button_s3");
+        bt.setAttribute("id","button");
+        bt.innerHTML="ok";
+        content.appendChild( t );
+        content.appendChild( tr );
+        content.appendChild( inp );
+        content.appendChild( bt );
+        listeElements.push(t);
+        listeElements.push(tr);
+        listeElements.push(inp);
+        listeElements.push(bt);
     }
     document.getElementById("qe").value=q;
 }
@@ -366,8 +458,16 @@ function rep_qcm(){
             }
         }
     }
-    delete listeElements[listeElements.indexOf(document.getElementById("bt_rep_qcm"))];
+    //
+    var ll = [];
+    for(elt of listeElements){
+        if(elt!=document.getElementById("bt_rep_qcm")){
+            ll.push(elt);
+        }
+    }
+    listeElements = ll;
     content.removeChild(document.getElementById("bt_rep_qcm"));
+    //
     var nbt=document.createElement("button");
     nbt.innerHTML="question suivante";
     nbt.setAttribute("onClick","qsuiv();");
@@ -376,6 +476,35 @@ function rep_qcm(){
     content.appendChild(nbt);
     listeElements.push(nbt);
 }
+
+function rep_voc(){
+    br=window.bonne_reponse
+    rep=document.getElementById("input").value;
+    good=false;
+    if(typeof br == "string"){
+        good=traitre_txt(br)==traitre_txt(rep)
+    }
+    else{
+        for(r of br){
+            if(!good){
+                good=traitre_txt(r)==traitre_txt(rep)
+            }
+        }
+    }
+    if(good){
+        points++;
+        document.getElementById("txt_rep").innerHTML="Bonne réponse !";
+        document.getElementById("txt_rep").style.color="green";
+    }
+    else{
+        document.getElementById("txt_rep").innerHTML="Mauvaise réponse ! La bonne réponse était "+br;
+        document.getElementById("txt_rep").style.color="red";
+    }
+    document.getElementById("input").setAttribute("onkeypress","checkEnterSuiv(event);");
+    document.getElementById("button").innerHTML="question suivante";
+    document.getElementById("button").setAttribute("onclick","qsuiv();")
+}
+
 function qsuiv(){
 	nbq++;
 	if( nbq >= nbqt){
@@ -578,7 +707,7 @@ function check_inp(){
     var tt=document.createElement("h2");
     //alert(traiteInp(rep));
    // alert(traiteInp(qq.br));
-    if(traiteInp(rep)==traiteInp(qq.br)){
+    if(traitre_txt(rep)==traitre_txt(qq.br)){
         tt.innerHTML="Vous avez juste !";
         tt.setAttribute("style","color:green;");
         points+=1;
@@ -619,6 +748,20 @@ function qcm_press(id_bt){
         window.reponses_qcm.push(bt.innerHTML);
     }
 }
+
+
+function checkEnterVoc(e) {
+    if(e && e.keyCode == 13) {
+       rep_voc();
+    }
+ }
+
+function checkEnterSuiv(e) {
+    if(e && e.keyCode == 13) {
+        qsuiv();
+    }
+}
+
 
 
 /////////////////////////////////////////////////////////// MAIN CODE ///////////////////////////////////////////////////////////
