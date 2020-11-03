@@ -8,7 +8,7 @@ var q={type:"",question:"",reponses:[],br:0};
 //var q={type:"voc",question:"Traduire mot en langue",reponses:[],br:["Traduction dans une autre langue 2","On a le droit aux synonymes"]}
 
 var questions=[
-    {type:"qcm",question:"Grâce à quoi est-ce que la Terre a obtenu sont atmosphère primitive ?",reponses:["Grâce au dégazage du magma","Grâce à l\'activité volcanique","Grâce aux météorites qui bombardent la Terre","Grâce aux premiers êtres vivants qui transformaient le CO2 en O2"],br:["Grâce au dégazage du magma","Grâce à l'activité volcanique","Grâce aux météorites qui bombardent la Terre"]},
+    {type:"qcm",question:"Grâce à quoi est-ce que la Terre a obtenu son atmosphère primitive ?",reponses:["Grâce au dégazage du magma","Grâce à l\'activité volcanique","Grâce aux météorites qui bombardent la Terre","Grâce aux premiers êtres vivants qui transformaient le CO2 en O2"],br:["Grâce au dégazage du magma","Grâce à l'activité volcanique","Grâce aux météorites qui bombardent la Terre"]},
     {type:"voc",question:"Comment appelle-t-on les formations rocheuses constituées par une alternance de couches rocheuses (souvent calcaire) et de couches de matière organique ?",image:"quizs/q9/q2.jpg",reponses:[],br:["stromatolites","stromatolite"]},
     {type:"qcu",question:"Que retrouve t-on dans des stromatolites ?",reponses:["Des cyanobactéries","Des chondrites","De l'hématite"],br:"Des cyanobactéries"},
     {type:"qcu",question:"Est-ce que les cyanobactéries ont créé du dioxygène grâce à la photosynthèse ?",reponses:["Oui","Non"],br:"Oui"},    
