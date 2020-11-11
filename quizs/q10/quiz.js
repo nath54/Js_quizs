@@ -22,4 +22,4 @@ var questions=[
     {type:"qcu",question:"Vrai ou Faux ? La pollution atmosphérique est d'origine naturelle",reponses:["Vrai","Faux"],br:"Faux"},
     {type:"qcu",question:"Vrai ou Faux ? Une combustion complète n'emet pas de micro-particules",reponses:["Vrai","Faux"],br:"Vrai"},
     {type:"qcu",question:"Vrai ou Faux ? Une combustion complète emet du CO2",reponses:["Vrai","Faux"],br:"Vrai"},
-];
+]

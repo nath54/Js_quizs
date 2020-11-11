@@ -277,4 +277,4 @@ var questions=[
     {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe encender à la 2eme personne du pluriel",reponses:[],br:["encendéis"]},
     {type:"voc",question:"Conjuguer en espagnol au présent de l'indicatif le verbe encender à la 3eme personne du pluriel",reponses:[],br:["encienden"]},
     
-];
+]

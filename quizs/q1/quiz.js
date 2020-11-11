@@ -28,5 +28,5 @@ var questions=[
 	{type:"dat",question:"Quand est ce qu'il y a eu la défaite de Waterloo ?",reponses:[1785,1815],br:["18","juin","1815"]},
 	{type:"dat",question:"Quand est ce que les deputes du ters etat se proclament Assemblée Nationale ?",reponses:[1785,1815],br:["17","juin","1789"]},
 	{type:"dat",question:"Quand est ce qu'il y a eu la fuite du roi ?",reponses:[1785,1815],br:["20","juin","1791"]},
-	{type:"dat",question:"Quand est ce qu'il y a eu la défaite de Waterloo ?",reponses:[1785,1815],br:["18","septembre","1793"]},	
+	{type:"dat",question:"Quand est ce qu'il y a eu la défaite de Waterloo ?",reponses:[1785,1815],br:["18","septembre","1793"]},
 ]
