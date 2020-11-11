@@ -1,15 +1,3 @@
-
-var q={type:"",question:"",reponses:[],br:0},
-
-/*
-
-EXEMPLES : 
-
-{type:"qcu",question:"Quand nait l'Assemblée Nationale ?",reponses:["le 16 juin 1789","le 17 juin 1789","le 18 juin 1789"],br:"le 17 juin 1789"},
-{type:"dat",question:"Quand Louis XVI meurt-il ?",reponses:[1785,1815],br:["21","janvier","1793"]},
-{type:"inp",question:"Définition de PIB",reponses:[],br:"Somme des richesses produites dans un pays et en une année donnée"},
-*/
-
 var questions=[
 	{type:"dat",question:"Quand est-ce que la seconde guerre mondiale a commencée ?",reponses:[1914,1983],br:["1","septembre","1939"]},
 	{type:"dat",question:"Quand est-ce que la seconde guerre mondiale s'est-elle terminée ?",reponses:[1914,1983],br:["2","septembre","1945"]},

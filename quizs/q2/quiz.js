@@ -1,5 +1,3 @@
-var q={type:"",question:"",reponses:[],br:0},
-
 var questions=[
     {type:"qcu",question:"Où ne se situent pas les Métropoles Francaises ?",reponses:["Aux littoraux","Près des frontières","À la montagne","Dans les vallées fluviales"],br:"À la montagne"},
     {type:"qcu",question:"Quelles sont les zones les plus dynamiques en France ?",reponses:["À l'Ouest et au Sud","Au Nord et L'Est","Au centre et au Nord"],br:"À l'Ouest et au Sud"},

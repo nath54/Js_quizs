@@ -1,6 +1,3 @@
-
-var q={type:"",question:"",reponses:[],br:0},
-
 var questions=[
 	{type:"dat",question:"Quand est-ce qu'il y a eu la révolution de février à Paris ?",reponses:[1800,1890],br:["fevrier","1848"]},
 	{type:"dat",question:"Quand est-ce qu'il y a eu la création du droit du travail ?",reponses:[1800,1890],br:["25","fevrier","1848"]},
