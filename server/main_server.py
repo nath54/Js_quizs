@@ -83,10 +83,25 @@ class Server():
                             txt += "\n\t" + q
                         txt += "\n]"
                         # on crée le répertoire
-                        num = str(len(os.listdir("./../quizs/")) + 1)
-                        os.mkdir("./../quizs/q" + num)
+                        idq = str(len(os.listdir("./../quizs/")) + 1)
+                        os.mkdir("./../quizs/q" + idq)
                         # on enregistre le fichier du quiz
-                        f = io.open("./../quizs/q" + num + "/quiz.js", "w", encoding="utf-8")
+                        f = io.open("./../quizs/q" + idq + "/quiz.js", "w", encoding="utf-8")
+                        f.write(txt)
+                        f.close()
+                        # on l'ajoute ensuite aux quizs dispos
+                        # on va ouvrir le fichier de la liste des quizs et on va récuperer l'ancien texte
+                        f = io.open("./../js/quizs.js", "r", encoding="utf-8")
+                        # on va enlever la derniere ligne : le ']' et on va rajouter les nouvelles questions
+                        txt = f.read()[:-2]
+                        f.close()
+                        # on va y ajouter la ligne du quiz
+                        titre = q["titre"]
+                        img = q.get("img", "images/bg3.jpg")
+                        txt += f"\n\t{{'titre' : '{titre}', 'img': '{img}', 'idq': {idq}}}"
+                        txt += "\n]"
+                        # on va réécrire le fichier
+                        f = io.open("./../js/quizs.js", "w", encoding="utf-8")
                         f.write(txt)
                         f.close()
 
@@ -97,10 +112,9 @@ class Server():
                         questions = data["questions"]
                         # on va ouvrir le fichier du quiz et on va récuperer l'ancien texte
                         f = io.open("./../quizs/q" + str(idq) + "/quiz.js", "r", encoding="utf-8")
-                        txt = f.read()
-                        f.close()
                         # on va enlever la derniere ligne : le ']' et on va rajouter les nouvelles questions
-                        txt = txt[:-2]
+                        txt = f.read()[:-2]
+                        f.close()
                         # les questions seront deja en format js, il ne reste plus qu'a les ajouter au fichier
                         for q in questions:
                             txt += "\n\t" + q
