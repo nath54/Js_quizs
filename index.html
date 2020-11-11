@@ -23,7 +23,7 @@
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
-	<body>
+	<body onload="create_quizs();">
 
 		<!-- Wrapper -->
 			<div class="wrapper style1">
@@ -52,85 +52,11 @@
 
 				<!-- Extra -->
 					<div id="extra">
-						<div class="container">
-							<div class="row no-collapse-1">
-
-								<section class="4u"> <a href="#" class="image featured"><img src="images/pic01.jpg" alt=""></a>
-									<div class="box">
-										<p>QUIZ : Histoire 1ere : La révolution Francaise (33 questions au total)</p>
-										<a href="quiz.html?quizjs=quizs/q1/quiz.js&titre=Quiz : La révolution Francaise" class="button button_s1">Faire le quiz</a> </div>
-								</section>
-
-                                <section class="4u"> <a href="#" class="image featured"><img src="images/pic02.jpg" alt=""></a>
-									<div class="box">
-										<p>QUIZ : Geographie 1ere : La métropolisation en France et dans le monde (23 questions au total)</p>
-										<a href="quiz.html?quizjs=quizs/q2/quiz.js&titre=Quiz : La métropolisation dans le monde" class="button button_s1">Faire le quiz</a> </div>
-								</section>
-
-                                <section class="4u"> <a href="#" class="image featured"><img src="images/pic03.jpg" alt=""></a>
-									<div class="box">
-										<p>QUIZ : Histoire 1ere :  la 2eme république et le 2nd Empire (23 questions au total)</p>
-										<a href="quiz.html?quizjs=quizs/q3/quiz.js&titre=Quiz : la 2eme république et le 2nd Empire" class="button button_s1">Faire le quiz</a> </div>
-								</section>
-
-							</div>
-
-                            <div class="row no-collapse-1">
-
-                                <section class="4u"> <a href="#" class="image featured"><img src="images/pic04.jpg" alt=""></a>
-									<div class="box">
-										<p>QUIZ : Histoire Terminale : La Seconde guerre mondiale (8 questions pour le moment)</p>
-										<a href="quiz.html?quizjs=quizs/q4/quiz.js&titre=Quiz : La 2nd guerre mondiale" class="button button_s1">Faire le quiz</a> </div>
-								</section>
-
-								<section class="4u"> <a href="#" class="image featured"><img src="images/pic05.png" alt=""></a>
-									<div class="box">
-										<p>QUIZ : Maths Terminale : Les Nombres Complexes (5 questions pour le moment)</p>
-										<a href="quiz.html?quizjs=quizs/q5/quiz.js&titre=Quiz : Les nombres complexes" class="button button_s1">Faire le quiz</a> </div>
-								</section>
-
-                                <section class="4u"> <a href="#" class="image featured"><img src="images/pic06.jpg" alt=""></a>
-									<div class="box">
-										<p>QUIZ : Histoire Terminale : L'impact de la crise de 1929, déséquilibre sociaux et economiques et les régimes totalitaires</p>
-										<a href="quiz.html?quizjs=quizs/q6/quiz.js&titre=Quiz : La crise de 1929" class="button button_s1">Faire le quiz</a> </div>
-								</section>
-
-							</div>
-
-							<div class="row no-collapse-1">
-
-								<section class="4u"> <a href="#" class="image featured"><img src="images/pic07.jpg" alt=""></a>
-									<div class="box">
-										<p>QUIZ : Philo Terminale : La conscience</p>
-										<a href="quiz.html?quizjs=quizs/q7/quiz.js&titre=Quiz : La consience" class="button button_s1">Faire le quiz</a> </div>
-								</section>
-
-								<section class="4u"> <a href="#" class="image featured"><img src="images/pic08.png" alt=""></a>
-									<div class="box">
-										<p>QUIZ : Espagnol - conjuguaison verbes irréguliers et quelques réguliers au présent de l'indicatif</p>
-										<a href="quiz.html?quizjs=quizs/q8/quiz.js&titre=Quiz : Conjuguaison espagnol présent" class="button button_s1">Faire le quiz</a> </div>
-								</section>
-								
-								<section class="4u"> <a href="#" class="image featured"><img src="images/pic09.jpg" alt=""></a>
-									<div class="box">
-										<p>QUIZ : ES-SVT Terminale : L'évolution de l'atmosphère</p>
-										<a href="quiz.html?quizjs=quizs/q9/quiz.js&titre=Quiz : L'évolution de l'atmosphère" class="button button_s1">Faire le quiz</a> </div>
-								</section>
-							</div>
-
+						<div class="container" id="quizs">
 							
-							<div class="row no-collapse-1">
-								
-								<section class="4u"> <a href="#" class="image featured"><img src="images/pic10.jpg" alt=""></a>
-									<div class="box">
-										<p>QUIZ : ES-Physique Terminale : Energie, choix de développement</p>
-										<a href="quiz.html?quizjs=quizs/q10/quiz.js&titre=Quiz : Energie, choix de développement" class="button button_s1">Faire le quiz</a> </div>
-								</section>
-
-							</div>
-
-
 						</div>
 					</div>
 	</body>
+	<script src="js/quizs.js" type="text/javascript"></script>
+	<script src="js/index.js" type="text/javascript"></script>
 </html>
