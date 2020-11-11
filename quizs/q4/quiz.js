@@ -1,6 +1,7 @@
 var questions=[
 	{type:"dat",question:"Quand est-ce que la seconde guerre mondiale a commencée ?",reponses:[1914,1983],br:["1","septembre","1939"]},
 	{type:"dat",question:"Quand est-ce que la seconde guerre mondiale s'est-elle terminée ?",reponses:[1914,1983],br:["2","septembre","1945"]},
+	{type:"qcu",question:"Quel événement marque le début de la seconde guerre mondiale ?",reponses:["L\'annexion de l\'Autriche par l\'Allemagne nazie", "L\'annexion de la France par l\'Allemagne nazie", "L\'annexion de la Pologne par l\'Allemagne nazie"],br:"L\'annexion de la Pologne par l\'Allemagne nazie"},
 	{type:"qcu",question:"Comment se nomment l\'Allemagne et ses alliés lors de la 2nd guerre mondiale ?",reponses:["Forces of the Haches","les forces de l\'Axe","Les forts des Axes"],br:"les forces de l\'Axe"},
 	{type:"qcu",question:"Comment se passe le début de la 2nd guerre mondiale pour l'Allemagne et ses alliés ?",reponses:["Ils soumettent rapidement l'Europe","Ils se font soumettre rapidement par leurs ennemis","Personne ne prend le dessus au début de la guerre"],br:"Ils soumettent rapidement l'Europe"},
 	{type:"qcu",question:"Qui poursuit seul la lutte pendant la seconde guerre mondiale lorque ses alliés sont soumis ?",reponses:["L'Allemagne","La France","le Royaume-Uni"],br:"le Royaume-Uni"},
@@ -8,4 +9,14 @@ var questions=[
 	{type:"qcu",question:"Qu'est-ce que l\’opération Barbarossa ?",reponses:["L\'invasion par le 3e Reich de la France","L'invasion par le 3e Reich de l'URSS","Un nom de code pour l\'extermination de la population juive."],br:"L\'invasion par le 3e Reich de l'URSS"},
 	{type:"qcu",question:"Comment est-ce que les Etats-Unis sont rentrés en guerre pendant la Seconde Guerre mondiale ?",reponses:["Ils ont subis une attaque surprise des forces aéronavales japonaise à Pearl Harbor","Hitler à Provoqué Franklin Roosevelt ( Président des Etats-Unis pendant la 2nd Guerre Mondiale ) lors de l'un de ses discours.","L'Allemagne a lancé une offensive surprise en Amérique, et a infligé de lourds dégats"],br:"Ils ont subis une attaque surprise des forces aéronavales japonaise à Pearl Harbor"},
 	{type:"dat",question:"Quand est-ce que les Etats-Unis rentrent en guerre ?",reponses:[1914,1983],br:["8","décembre","1941"]},
+	{type:"qcu",question:"Quel événement marque le premier échec miliaire majeur de l\'Allemagne nazie ?",reponses:["La Bataille de Stalingrad","Le débarquement de Normandie","L\'attaque de Pearl Harbor"],br:"La Bataille de Stalingrad"},
+	//
+	{type:"qcu",question:"Comment s\'appelle la tactique allemande visant a gagner rapidement contre une puissance ennemie ?",reponses:["Blitzkrieg" , "Sturmkrieg", "Luftkrieg", "Panzerkrieg"],br:"Blitzkrieg"},
+	{type:"qcu",question:"Comment se passe le début de la guerre entre la France et l\'Allemagne ?",reponses:["Il y a une drôle de guerre" , "L\'Allemagne et la France n\'arretent pas de lancer des offensives, mais aucuns ne cèdent", "Le gouvernement Francais demande aux Allemands de ne pas les attaquer car la France n\'est pas encore prête pour les combats."],br:"Il y a une drôle de guerre"},
+	{type:"qcu",question:"Pourquoi la France ne pensait pas être battue aussi facilement ?",reponses:["La France avait construit la ligne Maginot" , "La France avait recruté plus de 100 millions de soldats pour faire la guerre", "La France s\'était créé une division blindée comparable aux Panzerdivisionen Allemandes"],br:"Car la France avait construit la ligne Maginot"},
+	{type:"qcu",question:"Quelle était la stratégie francaise au début de la guerre ?",reponses:["Epuiser les Allemands grâce à une forte défense et un blocage des ports Allemands" , "Faire croire à Hitler que finalement on ne fait pas la guerre avec lui pour lancer une attaque surprise au meilleur moment", "Lancer pleins d\'attaques contre les forces Allemandes pour les faires reculer"],br:"Epuiser les Allemands grâce à une forte défense et un blocage des ports Allemands"},
+	{type:"qcu",question:"Comment s\'appellent les divisions blindées allemandes ?",reponses:["Panzerdivisionen" , "Blitzkrieg", "Luftwaffe"],br:"Panzerdivisionen"},
+	{type:"dat",question:"Quand a eu lieu la grande offensive allemande contre la France ?",reponses:[1914,1983],br:["10","mai","1940"]},
+	{type:"dat",question:"Quand a été signée l\'armistice entre la France et l\'Allemagne ?",reponses:[1914,1983],br:["22","juin","1940"]},
+	{type:"qcu",question:"Où a été signée l\'armistice entre la France et l\'Allemagne ?",reponses:["Rethondes" , "Versailles", "Berlin"],br:"Rethondes"},
 ]
