@@ -27,7 +27,7 @@ var questions=[
 	{type:"qcu",question:"Quelle est le résultat de la bataille aéronavale de Midway ?",reponses:["Les Etats Unis écrasent les troupes japonaises" , "Les Japonaises écrasent les troupes américaines", "Les deux armées subissent des pertes considérables"],br:"Les Etats Unis écrasent les troupes japonaises"},
 	{type:"dat",question:"Quand a eu lieu le débarquement en Normandie ?",reponses:[1914,1983],br:["6","juin","1944"]},
 	{type:"qcu",question:"Comment s\'elle l\'armée Allemande ?",reponses:["Wehrmacht" , "Streitkräfte", "Deutsche Macht", "Besiege Feinde"],br:"Wehrmacht"},
-	{type:"qcu",question:"Est-ce que la bataille de Stalingrad fut une bataille facile ?",reponses:["Oui", "Non"],br:"Oui"},
+	{type:"qcu",question:"Est-ce que la bataille de Stalingrad fut une bataille dificile ?",reponses:["Oui", "Non"],br:"Oui"},
 	{type:"dat",question:"Quand est pendu Mussolini ?",reponses:[1914,1983],br:["avril","1945"]},
 	{type:"dat",question:"Quand commence l\'envahissement de l\'Allemagne par les Alliés ?",reponses:[1914,1983],br:["janvier","1945"]},
 	{type:"dat",question:"Quand est pris Berlin ?",reponses:[1914,1983],br:["avril","1945"]},
